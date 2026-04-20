@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品架构图 - 居易人工智能</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #F8F9FA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.container {
+  position: relative;
+  width: 900px;
+  height: 720px;
+}
+svg.diagram {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+/* 云平台 */
+.cloud-center {
+  filter: drop-shadow(0 8px 32px rgba(0,180,216,0.5)) drop-shadow(0 0 60px rgba(0,180,216,0.2));
+}
+.cloud-text {
+  font-size: 22px;
+  font-weight: 800;
+  fill: #ffffff;
+  letter-spacing: 2px;
+}
+.cloud-sub {
+  font-size: 11px;
+  fill: rgba(255,255,255,0.8);
+  font-weight: 400;
+}
+/* 盒子卡片 */
+.box-card {
+  filter: drop-shadow(0 6px 24px rgba(0,0,0,0.12)) drop-shadow(0 2px 8px rgba(0,180,216,0.15));
+}
+.box-name {
+  font-size: 17px;
+  font-weight: 700;
+  fill: #00B4D8;
+}
+.box-role {
+  font-size: 13px;
+  font-weight: 600;
+  fill: #F4A261;
+}
+.box-desc {
+  font-size: 11px;
+  fill: #2B2D42;
+  opacity: 0.7;
+}
+/* 连线 */
+.conn-line {
+  stroke-dasharray: 8, 6;
+  animation: flowAnim 2s linear infinite;
+}
+.conn-line:nth-child(2) { animation-delay: 0.3s; }
+.conn-line:nth-child(3) { animation-delay: 0.6s; }
+@keyframes flowAnim {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -28; }
+}
+.ring-arc {
+  stroke-dasharray: 10, 6;
+  animation: arcAnim 3s ease-in-out infinite;
+}
+@keyframes arcAnim {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<svg class="diagram" viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 云平台渐变 -->
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00B4D8"/>
+      <stop offset="100%" style="stop-color:#0077B6"/>
+    </linearGradient>
+    <!-- 云平台内光点 -->
+    <radialGradient id="cloudDot" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#F4A261;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#F4A261;stop-opacity:0"/>
+    </radialGradient>
+    <!-- 盒子渐变填充 -->
+    <linearGradient id="boxGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#EAF8FC;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#F8F9FA;stop-opacity:1"/>
+    </linearGradient>
+    <!-- 连接线渐变 -->
+    <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00B4D8;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#00B4D8;stop-opacity:0.3"/>
+    </linearGradient>
+    <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00B4D8;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#F4A261;stop-opacity:0.5"/>
+    </linearGradient>
+    <linearGradient id="lineGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00B4D8;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#00B4D8;stop-opacity:0.3"/>
+    </linearGradient>
+    <!-- 环形渐变 -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00B4D8;stop-opacity:0.6"/>
+      <stop offset="50%" style="stop-color:#F4A261;stop-opacity:0.35"/>
+      <stop offset="100%" style="stop-color:#00B4D8;stop-opacity:0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== 连接线：云平台到三个盒子 ===== -->
+  <line x1="450" y1="205" x2="150" y2="400" stroke="url(#lineGrad1)" stroke-width="2.5" class="conn-line"/>
+  <line x1="450" y1="205" x2="450" y2="420" stroke="url(#lineGrad2)" stroke-width="2.5" class="conn-line"/>
+  <line x1="450" y1="205" x2="750" y2="400" stroke="url(#lineGrad3)" stroke-width="2.5" class="conn-line"/>
+
+  <!-- ===== 环形连接：三个盒子之间 ===== -->
+  <path d="M150,500 Q450,620 750,500" stroke="url(#ringGrad)" stroke-width="2.5" fill="none" class="ring-arc"/>
+  <path d="M150,510 Q450,600 750,510" stroke="rgba(0,180,216,0.15)" stroke-width="1.5" fill="none" stroke-dasharray="6,5"/>
+
+  <!-- ===== 中心云平台 ===== -->
+  <g class="cloud-center">
+    <!-- 云朵主体 -->
+    <ellipse cx="450" cy="170" rx="120" ry="60" fill="url(#cloudGrad)"/>
+    <ellipse cx="390" cy="185" rx="55" ry="45" fill="url(#cloudGrad)"/>
+    <ellipse cx="510" cy="185" rx="55" ry="45" fill="url(#cloudGrad)"/>
+    <ellipse cx="450" cy="195" rx="80" ry="40" fill="url(#cloudGrad)"/>
+    <!-- 橙色光点 -->
+    <circle cx="450" cy="160" r="12" fill="url(#cloudDot)"/>
+    <!-- 文字 -->
+    <text x="450" y="175" text-anchor="middle" class="cloud-text">AloT云平台</text>
+  </g>
+
+  <!-- ===== 盒子1：空间智联Box（左上）====== -->
+  <g class="box-card">
+    <rect x="60" y="420" width="180" height="120" rx="18" fill="url(#boxGrad1)" stroke="#00B4D8" stroke-width="2"/>
+    <!-- 图标背景 -->
+    <rect x="130" y="435" width="48" height="48" rx="12" fill="rgba(0,180,216,0.15)" stroke="rgba(0,180,216,0.4)" stroke-width="1"/>
+    <!-- 房屋图标 -->
+    <g transform="translate(154,453)">
+      <path d="M0,18 L12,4 L24,18 M4,18 L4,28 L20,28 L20,18" stroke="#00B4D8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="8" y="20" width="8" height="8" rx="1" fill="#00B4D8" opacity="0.5"/>
+    </g>
+    <!-- 文字 -->
+    <text x="150" y="500" text-anchor="middle" class="box-name">空间智联Box</text>
+    <text x="150" y="516" text-anchor="middle" class="box-role">懂你的生活管家</text>
+    <text x="150" y="530" text-anchor="middle" class="box-desc">语音/触控 · 环境感知 · 习惯学习</text>
+  </g>
+
+  <!-- ===== 盒子2：社区智联Box（中下）====== -->
+  <g class="box-card">
+    <rect x="360" y="440" width="180" height="120" rx="18" fill="url(#boxGrad1)" stroke="#00B4D8" stroke-width="2"/>
+    <!-- 图标背景 -->
+    <rect x="430" y="455" width="48" height="48" rx="12" fill="rgba(0,180,216,0.15)" stroke="rgba(0,180,216,0.4)" stroke-width="1"/>
+    <!-- 盾牌/人形图标 -->
+    <g transform="translate(454,471)">
+      <path d="M12,2 L22,6 L22,14 Q22,24 12,28 Q2,24 2,14 L2,6 Z" stroke="#00B4D8" stroke-width="2.5" fill="rgba(0,180,216,0.2)" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="12" cy="11" r="3" fill="#00B4D8"/>
+      <line x1="12" y1="15" x2="12" y2="22" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <!-- 文字 -->
+    <text x="450" y="520" text-anchor="middle" class="box-name">社区智联Box</text>
+    <text x="450" y="536" text-anchor="middle" class="box-role">守秩序的系统管家</text>
+    <text x="450" y="550" text-anchor="middle" class="box-desc">监控门禁 · 规则联动 · 安全运维</text>
+  </g>
+
+  <!-- ===== 盒子3：机器人交互Box（右上）====== -->
+  <g class="box-card">
+    <rect x="660" y="420" width="180" height="120" rx="18" fill="url(#boxGrad1)" stroke="#00B4D8" stroke-width="2"/>
+    <!-- 图标背景 -->
+    <rect x="730" y="435" width="48" height="48" rx="12" fill="rgba(0,180,216,0.15)" stroke="rgba(0,180,216,0.4)" stroke-width="1"/>
+    <!-- 机器人图标 -->
+    <g transform="translate(754,449)">
+      <rect x="3" y="12" width="18" height="16" rx="3" stroke="#00B4D8" stroke-width="2.5" fill="rgba(0,180,216,0.2)"/>
+      <rect x="8" y="2" width="8" height="8" rx="2" stroke="#00B4D8" stroke-width="2.5" fill="rgba(0,180,216,0.3)"/>
+      <circle cx="8" cy="18" r="2" fill="#00B4D8"/>
+      <circle cx="16" cy="18" r="2" fill="#00B4D8"/>
+      <line x1="0" y1="18" x2="3" y2="18" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+      <line x1="21" y1="18" x2="24" y2="18" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+      <line x1="12" y1="28" x2="12" y2="32" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="8" y1="32" x2="16" y2="32" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <!-- 文字 -->
+    <text x="750" y="500" text-anchor="middle" class="box-name">机器人交互Box</text>
+    <text x="750" y="516" text-anchor="middle" class="box-role">会干活的调度总管</text>
+    <text x="750" y="530" text-anchor="middle" class="box-desc">机器人调度 · 任务协同 · 服务集成</text>
+  </g>
+
+  <!-- ===== 底部装饰线 ===== -->
+  <line x1="200" y1="590" x2="700" y2="590" stroke="rgba(0,180,216,0.2)" stroke-width="1.5" stroke-dasharray="8,6"/>
+
+</svg>
+</div>
+</body>
+</html>
