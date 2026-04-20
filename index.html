@@ -442,6 +442,16 @@
     .cloud-title-final { font-size: 13px; }
     .cloud-icon-final { font-size: 28px; }
   }
+  /* 产品架构图 - 图片版 */
+  .product-arch-img {
+    width: 100%; max-width: 900px; margin: 0 auto;
+    padding: 20px 0;
+  }
+  .product-arch-img img {
+    width: 100%; height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
   .arch-boxes, .product-arch-ring, .product-arch-ring-v2, .product-arch-ring-v3 { display: none; }
 
   /* =========== HOME: Forward Looking =========== */
@@ -1091,58 +1101,8 @@
         <h2 class="section-title">一个云端大脑 + <span class="cyan">三大智联盒子</span></h2>
         <p class="section-desc">鼠标悬停每个盒子，了解详细能力介绍</p>
       </div>
-      <div class="product-arch-ring-final">
-        <!-- 顶部：AIoT云平台 -->
-        <div class="arch-cloud-final">
-          <div class="cloud-icon-final">☁️</div>
-          <div class="cloud-title-final">AIoT 云平台</div>
-        </div>
-        <!-- 连接线 SVG -->
-        <svg class="arch-connections-final" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid meet">
-          <!-- 云平台到三个盒子的连接线 -->
-          <path d="M300,55 Q200,120 130,200" stroke="url(#gradL)" stroke-width="2.5" fill="none" stroke-dasharray="10,6" class="conn-final"/>
-          <path d="M300,55 L300,220" stroke="url(#gradC)" stroke-width="2.5" fill="none" stroke-dasharray="10,6" class="conn-final"/>
-          <path d="M300,55 Q400,120 470,200" stroke="url(#gradR)" stroke-width="2.5" fill="none" stroke-dasharray="10,6" class="conn-final"/>
-          <!-- 盒子之间的弧线连接 -->
-          <path d="M130,280 Q300,380 470,280" stroke="url(#gradRing)" stroke-width="3" fill="none" stroke-dasharray="12,8" class="ring-arc-final"/>
-          <path d="M130,280 Q300,350 470,280" stroke="rgba(0,180,216,0.2)" stroke-width="1.5" fill="none" stroke-dasharray="8,6" class="ring-arc-inner"/>
-          <defs>
-            <linearGradient id="gradL" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00B4D8;stop-opacity:0.9"/><stop offset="100%" style="stop-color:#00B4D8;stop-opacity:0.3"/></linearGradient>
-            <linearGradient id="gradC" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#00B4D8;stop-opacity:0.9"/><stop offset="100%" style="stop-color:#F4A261;stop-opacity:0.6"/></linearGradient>
-            <linearGradient id="gradR" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#00B4D8;stop-opacity:0.9"/><stop offset="100%" style="stop-color:#00B4D8;stop-opacity:0.3"/></linearGradient>
-            <linearGradient id="gradRing" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#00B4D8;stop-opacity:0.6"/><stop offset="50%" style="stop-color:#F4A261;stop-opacity:0.4"/><stop offset="100%" style="stop-color:#00B4D8;stop-opacity:0.6"/></linearGradient>
-          </defs>
-        </svg>
-        <!-- 三个盒子：弧形排列，带底座 -->
-        <div class="arch-boxes-final">
-          <div class="final-box final-box-left">
-            <div class="final-box-pedestal"></div>
-            <div class="final-box-content">
-              <div class="final-icon">🏠</div>
-              <div class="final-name">空间智联Box</div>
-              <div class="final-role">懂你的生活管家</div>
-              <div class="final-desc">语音/触控 · 环境感知 · 习惯学习</div>
-            </div>
-          </div>
-          <div class="final-box final-box-center">
-            <div class="final-box-pedestal"></div>
-            <div class="final-box-content">
-              <div class="final-icon">🏢</div>
-              <div class="final-name">社区智联Box</div>
-              <div class="final-role">守秩序的系统管家</div>
-              <div class="final-desc">监控门禁 · 规则联动 · 安全运维</div>
-            </div>
-          </div>
-          <div class="final-box final-box-right">
-            <div class="final-box-pedestal"></div>
-            <div class="final-box-content">
-              <div class="final-icon">🤖</div>
-              <div class="final-name">机器人交互Box</div>
-              <div class="final-role">会干活的调度总管</div>
-              <div class="final-desc">机器人调度 · 任务协同 · 服务集成</div>
-            </div>
-          </div>
-        </div>
+      <div class="product-arch-img">
+        <img src="assets/product-arch-diagram.png" alt="产品架构图 - AloT云平台与三大智联Box" />
       </div>
     </div>
   </section>
