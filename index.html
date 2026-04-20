@@ -322,27 +322,120 @@
   .arch-line-v {
     width: 2px; height: 28px; background: rgba(0,180,216,0.3);
   }
-  .arch-boxes {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  /* =========== Ring Architecture Layout =========== */
+  .product-arch-ring {
+    position: relative;
+    width: 100%; max-width: 580px; margin: 0 auto;
+    height: 400px;
   }
-  .arch-box {
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(0,180,216,0.3);
-    border-radius: 14px; padding: 24px; text-align: center;
-    transition: var(--transition); cursor: pointer;
+  .ring-lines {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; pointer-events: none;
   }
-  .arch-box:hover {
-    background: rgba(0,180,216,0.1); border-color: var(--cyan-main);
-    transform: translateY(-4px);
+  .ring-line {
+    animation: ringPulse 3s ease-in-out infinite;
   }
-  .arch-box-icon {
-    width: 52px; height: 52px; border-radius: 12px; margin: 0 auto 14px;
+  .ring-line:nth-child(2) { animation-delay: 0.4s; }
+  .ring-line:nth-child(3) { animation-delay: 0.8s; }
+  @keyframes ringPulse {
+    0%, 100% { opacity: 0.4; stroke-dashoffset: 0; }
+    50% { opacity: 1; stroke-dashoffset: 20; }
+  }
+  /* 中心云平台 */
+  .ring-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px; height: 160px;
+    background: linear-gradient(135deg, #00B4D8 0%, #0077B6 100%);
+    border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 0 40px rgba(0,180,216,0.5), 0 0 80px rgba(0,180,216,0.2);
+    z-index: 2;
+    border: 2px solid rgba(255,255,255,0.3);
+    animation: centerGlow 3s ease-in-out infinite;
+  }
+  @keyframes centerGlow {
+    0%, 100% { box-shadow: 0 0 40px rgba(0,180,216,0.5), 0 0 80px rgba(0,180,216,0.2); }
+    50% { box-shadow: 0 0 60px rgba(0,180,216,0.7), 0 0 100px rgba(0,180,216,0.35); }
+  }
+  .ring-center-icon { font-size: 32px; margin-bottom: 6px; }
+  .ring-center-title { color: white; font-weight: 800; font-size: 14px; text-align: center; }
+  .ring-center-sub { color: rgba(255,255,255,0.8); font-size: 11px; text-align: center; margin-top: 4px; max-width: 120px; line-height: 1.4; }
+  /* 三个盒子 */
+  .ring-box {
+    position: absolute;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(0,180,216,0.4);
+    border-radius: 16px; padding: 20px 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 160px;
+  }
+  .ring-box:hover {
+    background: rgba(0,180,216,0.15);
+    border-color: #00B4D8;
+    transform: scale(1.06);
+    box-shadow: 0 8px 30px rgba(0,180,216,0.3);
+  }
+  .ring-box-top {
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+  }
+  .ring-box-top:hover { transform: translateX(-50%) scale(1.06); }
+  .ring-box-left {
+    bottom: 0; left: 0;
+  }
+  .ring-box-right {
+    bottom: 0; right: 0;
+  }
+  .ring-box-icon {
+    width: 48px; height: 48px; border-radius: 12px; margin: 0 auto 12px;
     background: linear-gradient(135deg, rgba(0,180,216,0.3), rgba(0,119,182,0.3));
     border: 1px solid rgba(0,180,216,0.4);
     display: flex; align-items: center; justify-content: center;
-    font-size: 24px;
+    font-size: 22px;
   }
-  .arch-box-name { color: var(--cyan-main); font-weight: 700; font-size: 15px; margin-bottom: 6px; }
-  .arch-box-desc { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; }
+  .ring-box-name { color: #00B4D8; font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .ring-box-desc { color: rgba(255,255,255,0.65); font-size: 12px; line-height: 1.6; }
+  /* 环形轨道动画 */
+  .ring-orbit {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,180,216,0.1);
+    animation: orbitSpin 20s linear infinite;
+    pointer-events: none;
+  }
+  .orbit-dot {
+    position: absolute; top: -5px; left: 50%;
+    width: 10px; height: 10px;
+    background: #00B4D8;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,180,216,0.8);
+    transform: translateX(-50%);
+  }
+  @keyframes orbitSpin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  /* 响应式 */
+  @media (max-width: 600px) {
+    .product-arch-ring { height: 700px; }
+    .ring-center { width: 120px; height: 120px; }
+    .ring-center-icon { font-size: 26px; }
+    .ring-center-title { font-size: 12px; }
+    .ring-center-sub { font-size: 10px; }
+    .ring-box { width: 130px; padding: 16px 12px; }
+    .ring-box-name { font-size: 12px; }
+    .ring-box-desc { font-size: 11px; }
+    .ring-orbit { width: 240px; height: 240px; }
+  }
+  .arch-boxes { display: none; } /* 隐藏旧的横向布局 */
 
   /* =========== HOME: Forward Looking =========== */
   .fwd-wrap {
@@ -991,37 +1084,41 @@
         <h2 class="section-title">一个云端大脑 + <span class="cyan">三大智联盒子</span></h2>
         <p class="section-desc">鼠标悬停每个盒子，了解详细能力介绍</p>
       </div>
-      <div class="product-arch" style="margin-bottom:0;">
-        <div class="arch-title">☁️ AIoT云平台 · <span>统一数据中台 · 智能决策引擎 · 远程管理</span></div>
-        <div class="arch-cloud">
-          <div class="arch-cloud-box">
-            Space Cube 云端大脑
-            <div class="arch-box-sub">全量数据汇聚 · AI决策中枢 · 边云协同 · 远程运维</div>
-          </div>
+      <div class="product-arch-ring">
+        <div class="ring-center">
+          <div class="ring-center-icon">☁️</div>
+          <div class="ring-center-title">AIoT 云平台</div>
+          <div class="ring-center-sub">统一数据中台 · 智能决策引擎</div>
         </div>
-        <div class="arch-connector">
-          <div class="arch-dots">
-            <div class="arch-dot-line"><div class="arch-dot-circle"></div><div class="arch-line-v"></div></div>
-            <div class="arch-dot-line"><div class="arch-dot-circle"></div><div class="arch-line-v"></div></div>
-            <div class="arch-dot-line"><div class="arch-dot-circle"></div><div class="arch-line-v"></div></div>
-          </div>
+        <svg class="ring-lines" viewBox="0 0 500 340" preserveAspectRatio="xMidYMid meet">
+          <!-- 连接线：中心到三个盒子 -->
+          <line x1="250" y1="170" x2="250" y2="38" stroke="rgba(0,180,216,0.6)" stroke-width="2" stroke-dasharray="6,4" class="ring-line"/>
+          <line x1="250" y1="170" x2="56" y2="266" stroke="rgba(0,180,216,0.6)" stroke-width="2" stroke-dasharray="6,4" class="ring-line"/>
+          <line x1="250" y1="170" x2="444" y2="266" stroke="rgba(0,180,216,0.6)" stroke-width="2" stroke-dasharray="6,4" class="ring-line"/>
+          <!-- 环形虚线背景 -->
+          <circle cx="250" cy="170" r="130" fill="none" stroke="rgba(0,180,216,0.12)" stroke-width="1.5" stroke-dasharray="8,6"/>
+        </svg>
+        <!-- 盒子1：顶部 -->
+        <div class="ring-box ring-box-top">
+          <div class="ring-box-icon">🏠</div>
+          <div class="ring-box-name">空间智联Box</div>
+          <div class="ring-box-desc">懂你的生活管家<br>语音/触控 · 环境感知 · 习惯学习</div>
         </div>
-        <div class="arch-boxes">
-          <div class="arch-box" title="空间智联Box：家庭/室内空间智能化管家">
-            <div class="arch-box-icon">🏠</div>
-            <div class="arch-box-name">空间智联Box</div>
-            <div class="arch-box-desc">懂你的生活管家<br>语音/触控 · 环境感知 · 习惯学习</div>
-          </div>
-          <div class="arch-box" title="社区智联Box：社区/楼宇公共区域管理">
-            <div class="arch-box-icon">🏢</div>
-            <div class="arch-box-name">社区智联Box</div>
-            <div class="arch-box-desc">守秩序的系统管家<br>监控门禁 · 规则联动 · 安全运维</div>
-          </div>
-          <div class="arch-box" title="机器人交互Box：跨空间机器人集群调度">
-            <div class="arch-box-icon">🤖</div>
-            <div class="arch-box-name">机器人交互Box</div>
-            <div class="arch-box-desc">会干活的调度总管<br>机器人调度 · 任务协同 · 服务集成</div>
-          </div>
+        <!-- 盒子2：左下 -->
+        <div class="ring-box ring-box-left">
+          <div class="ring-box-icon">🏢</div>
+          <div class="ring-box-name">社区智联Box</div>
+          <div class="ring-box-desc">守秩序的系统管家<br>监控门禁 · 规则联动 · 安全运维</div>
+        </div>
+        <!-- 盒子3：右下 -->
+        <div class="ring-box ring-box-right">
+          <div class="ring-box-icon">🤖</div>
+          <div class="ring-box-name">机器人交互Box</div>
+          <div class="ring-box-desc">会干活的调度总管<br>机器人调度 · 任务协同 · 服务集成</div>
+        </div>
+        <!-- 环形动画粒子 -->
+        <div class="ring-orbit">
+          <div class="orbit-dot"></div>
         </div>
       </div>
     </div>
