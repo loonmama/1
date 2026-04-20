@@ -322,7 +322,49 @@
   .arch-line-v {
     width: 2px; height: 28px; background: rgba(0,180,216,0.3);
   }
-  /* =========== Ring Architecture Layout Final =========== */
+  /* 原始三盒布局 */
+  .arch-boxes {
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+    padding-top: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .arch-box {
+    flex: 1;
+    max-width: 200px;
+    text-align: center;
+    background: rgba(0,180,216,0.08);
+    border: 1.5px solid rgba(0,180,216,0.3);
+    border-radius: 16px;
+    padding: 20px 16px;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .arch-box:hover {
+    background: rgba(0,180,216,0.15);
+    border-color: var(--cyan-main);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,180,216,0.2);
+  }
+  .arch-box-icon { font-size: 40px; margin-bottom: 12px; }
+  .arch-box-name {
+    font-size: 15px; font-weight: 700; color: var(--cyan-main);
+    margin-bottom: 8px;
+  }
+  .arch-box-role { font-size: 12px; color: var(--orange-main); font-weight: 600; margin-bottom: 6px; }
+  .arch-box-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+  /* 产品架构图 - 图片版 */
+  .product-arch-img { display: none; }
+  .product-arch-img img {
+    width: 100%; height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
+  .product-arch-ring, .product-arch-ring-v2, .product-arch-ring-v3, .product-arch-ring-final { display: none; }
   .product-arch-ring-final {
     position: relative;
     width: 100%; max-width: 660px; margin: 0 auto;
@@ -442,17 +484,8 @@
     .cloud-title-final { font-size: 13px; }
     .cloud-icon-final { font-size: 28px; }
   }
-  /* 产品架构图 - 图片版 */
-  .product-arch-img {
-    width: 100%; max-width: 900px; margin: 0 auto;
-    padding: 20px 0;
-  }
-  .product-arch-img img {
-    width: 100%; height: auto;
-    border-radius: 16px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
-  }
-  .arch-boxes, .product-arch-ring, .product-arch-ring-v2, .product-arch-ring-v3 { display: none; }
+  /* 产品架构图 - 图片版（已隐藏，恢复使用CSS原始版） */
+  .product-arch-ring, .product-arch-ring-v2, .product-arch-ring-v3, .product-arch-ring-final { display: none; }
 
   /* =========== HOME: Forward Looking =========== */
   .fwd-wrap {
@@ -1101,8 +1134,42 @@
         <h2 class="section-title">一个云端大脑 + <span class="cyan">三大智联盒子</span></h2>
         <p class="section-desc">鼠标悬停每个盒子，了解详细能力介绍</p>
       </div>
-      <div class="product-arch-img">
-        <img src="assets/product-arch-diagram.png" alt="产品架构图 - AloT云平台与三大智联Box" />
+      <!-- 产品架构 - 原始CSS版 -->
+      <div class="product-arch" style="margin-top:40px;">
+        <div class="arch-title">AIoT云平台 · 空间智能大脑<br><span style="font-size:14px;opacity:0.7;font-weight:400;">统一数据中台 · 智能决策引擎 · 远程管理</span></div>
+        <div class="arch-cloud">
+          <div class="arch-cloud-box">
+            ☁️ AIoT云平台
+            <div class="arch-box-sub">数据汇聚 · 智能决策 · 远程管理</div>
+          </div>
+        </div>
+        <div class="arch-connector">
+          <div class="arch-dots">
+            <div class="arch-dot-line"><div class="arch-dot-circle"></div><div class="arch-line-v"></div></div>
+            <div class="arch-dot-line"><div class="arch-dot-circle"></div><div class="arch-line-v"></div></div>
+            <div class="arch-dot-line"><div class="arch-dot-circle"></div><div class="arch-line-v"></div></div>
+          </div>
+        </div>
+        <div class="arch-boxes">
+          <div class="arch-box">
+            <div class="arch-box-icon">🏠</div>
+            <div class="arch-box-name">空间智联Box</div>
+            <div class="arch-box-role">懂你的生活管家</div>
+            <div class="arch-box-desc">家庭/室内空间智能化</div>
+          </div>
+          <div class="arch-box">
+            <div class="arch-box-icon">🏢</div>
+            <div class="arch-box-name">社区智联Box</div>
+            <div class="arch-box-role">守秩序的系统管家</div>
+            <div class="arch-box-desc">社区/楼宇公共区域管理</div>
+          </div>
+          <div class="arch-box">
+            <div class="arch-box-icon">🤖</div>
+            <div class="arch-box-name">机器人交互Box</div>
+            <div class="arch-box-role">会干活的调度总管</div>
+            <div class="arch-box-desc">跨空间机器人集群调度</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
