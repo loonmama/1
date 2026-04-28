@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
-<!-- saved from url=(0022)http://127.0.0.1:8080/ -->
-<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>居易人工智能有限公司 | EaseLiving AI</title>
+<title>居易人工智能有限公司 | Easy Living AI</title>
 <style>
   /* =========== CSS Variables & Reset =========== */
   :root {
@@ -188,22 +188,13 @@
     background: linear-gradient(90deg, rgba(2,24,40,0.78) 0%, rgba(2,24,40,0.32) 60%, transparent 100%);
   }
   .banner-bg-1 {
-    background-image: url("./assets/images/img02.png"), linear-gradient(135deg, rgba(10,41,66,0.75) 0%, rgba(10,61,94,0.75) 40%, rgba(8,90,122,0.75) 100%);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url('assets/banner-community.png') center/cover no-repeat, linear-gradient(135deg, rgba(10,41,66,0.72) 0%, rgba(10,61,94,0.52) 60%, rgba(8,90,122,0.35) 100%);
   }
   .banner-bg-2 {
-    background-image: url("./assets/images/img03.png"), linear-gradient(135deg, rgba(13,33,55,0.75) 0%, rgba(13,58,86,0.75) 40%, rgba(12,82,114,0.75) 100%);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url('assets/Modern_smart_home_living_room__2026-04-20T10-32-46.png') center/cover no-repeat, linear-gradient(135deg, rgba(13,33,55,0.72) 0%, rgba(13,58,86,0.52) 60%, rgba(12,82,114,0.35) 100%);
   }
   .banner-bg-3 {
-    background-image: url("./assets/images/img04.png"), linear-gradient(135deg, rgba(15,31,53,0.75) 0%, rgba(16,45,79,0.75) 40%, rgba(12,63,104,0.75) 100%);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url('assets/AI_home_robot_concept__humanoi_2026-04-20T10-34-00.png') center/cover no-repeat, linear-gradient(135deg, rgba(15,31,53,0.72) 0%, rgba(16,45,79,0.52) 60%, rgba(12,63,104,0.35) 100%);
   }
   .banner-visual {
     position: absolute; inset: 0;
@@ -331,27 +322,170 @@
   .arch-line-v {
     width: 2px; height: 28px; background: rgba(0,180,216,0.3);
   }
+  /* 原始三盒布局 */
   .arch-boxes {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+    padding-top: 20px;
+    position: relative;
+    z-index: 2;
   }
   .arch-box {
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(0,180,216,0.3);
-    border-radius: 14px; padding: 24px; text-align: center;
-    transition: var(--transition); cursor: pointer;
+    flex: 1;
+    max-width: 200px;
+    text-align: center;
+    background: rgba(0,180,216,0.08);
+    border: 1.5px solid rgba(0,180,216,0.3);
+    border-radius: 16px;
+    padding: 20px 16px;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    cursor: pointer;
   }
   .arch-box:hover {
-    background: rgba(0,180,216,0.1); border-color: var(--cyan-main);
+    background: rgba(0,180,216,0.15);
+    border-color: var(--cyan-main);
     transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,180,216,0.2);
   }
-  .arch-box-icon {
-    width: 52px; height: 52px; border-radius: 12px; margin: 0 auto 14px;
-    background: linear-gradient(135deg, rgba(0,180,216,0.3), rgba(0,119,182,0.3));
-    border: 1px solid rgba(0,180,216,0.4);
+  .arch-box-icon { font-size: 40px; margin-bottom: 12px; }
+  .arch-box-name {
+    font-size: 15px; font-weight: 700; color: var(--cyan-main);
+    margin-bottom: 8px;
+  }
+  .arch-box-role { font-size: 12px; color: var(--orange-main); font-weight: 600; margin-bottom: 6px; }
+  .arch-box-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+  /* 产品架构图 - 图片版 */
+  .product-arch-img { display: none; }
+  .product-arch-img img {
+    width: 100%; height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
+  .product-arch-ring, .product-arch-ring-v2, .product-arch-ring-v3, .product-arch-ring-final { display: none; }
+  .product-arch-ring-final {
+    position: relative;
+    width: 100%; max-width: 660px; margin: 0 auto;
+    padding: 20px 0 40px;
+  }
+  /* 顶部云平台 */
+  .arch-cloud-final {
+    width: 200px; margin: 0 auto;
+    background: linear-gradient(135deg, #00B4D8 0%, #0077B6 100%);
+    border-radius: 100px;
+    padding: 18px 28px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0,180,216,0.6), 0 0 100px rgba(0,180,216,0.25);
+    border: 2px solid rgba(255,255,255,0.3);
+    position: relative; z-index: 5;
+    animation: cloudPulse 3s ease-in-out infinite;
+  }
+  @keyframes cloudPulse {
+    0%, 100% { box-shadow: 0 0 50px rgba(0,180,216,0.6), 0 0 100px rgba(0,180,216,0.25); }
+    50% { box-shadow: 0 0 70px rgba(0,180,216,0.8), 0 0 120px rgba(0,180,216,0.35); }
+  }
+  .cloud-icon-final { font-size: 34px; margin-bottom: 6px; }
+  .cloud-title-final { color: white; font-weight: 800; font-size: 16px; letter-spacing: 1px; }
+  /* SVG连接线 */
+  .arch-connections-final {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 380px;
+    pointer-events: none; z-index: 1;
+  }
+  .conn-final {
+    animation: connFlow 2.5s ease-in-out infinite;
+  }
+  .conn-final:nth-child(1) { animation-delay: 0s; }
+  .conn-final:nth-child(2) { animation-delay: 0.4s; }
+  .conn-final:nth-child(3) { animation-delay: 0.8s; }
+  @keyframes connFlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  .ring-arc-final {
+    animation: arcFlow 3s ease-in-out infinite;
+  }
+  .ring-arc-inner {
+    animation: arcFlow 3s ease-in-out infinite 0.5s;
+  }
+  @keyframes arcFlow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+  }
+  /* 三个盒子：弧形排列带底座 */
+  .arch-boxes-final {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+    position: relative; z-index: 3;
+    padding-top: 180px;
+  }
+  .final-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* 盒子底座 - 圆形平台 */
+  .final-box-pedestal {
+    width: 100px; height: 30px;
+    background: linear-gradient(180deg, rgba(0,180,216,0.4) 0%, rgba(0,180,216,0.1) 100%);
+    border-radius: 50%;
+    border: 1px solid rgba(0,180,216,0.5);
+    box-shadow: 0 5px 20px rgba(0,180,216,0.3);
+    margin-top: -15px;
+    animation: pedestalGlow 3s ease-in-out infinite;
+  }
+  @keyframes pedestalGlow {
+    0%, 100% { box-shadow: 0 5px 20px rgba(0,180,216,0.3); }
+    50% { box-shadow: 0 5px 30px rgba(0,180,216,0.5); }
+  }
+  /* 盒子本体 */
+  .final-box-content {
+    background: linear-gradient(180deg, rgba(0,180,216,0.15) 0%, rgba(255,255,255,0.05) 100%);
+    border: 2px solid rgba(0,180,216,0.5);
+    border-radius: 20px;
+    padding: 24px 18px;
+    text-align: center;
+    width: 160px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+  }
+  .final-box-content:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #00B4D8;
+    box-shadow: 0 15px 50px rgba(0,180,216,0.4), 0 0 30px rgba(0,180,216,0.2);
+  }
+  .final-icon {
+    width: 56px; height: 56px; border-radius: 16px; margin: 0 auto 14px;
+    background: linear-gradient(135deg, rgba(0,180,216,0.4), rgba(0,119,182,0.3));
+    border: 1px solid rgba(0,180,216,0.6);
     display: flex; align-items: center; justify-content: center;
-    font-size: 24px;
+    font-size: 26px;
+    box-shadow: 0 4px 15px rgba(0,180,216,0.3);
   }
-  .arch-box-name { color: var(--cyan-main); font-weight: 700; font-size: 15px; margin-bottom: 6px; }
-  .arch-box-desc { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; }
+  .final-name { color: #00B4D8; font-weight: 700; font-size: 14px; margin-bottom: 6px; text-shadow: 0 0 10px rgba(0,180,216,0.5); }
+  .final-role { color: #F4A261; font-weight: 600; font-size: 12px; margin-bottom: 8px; }
+  .final-desc { color: rgba(255,255,255,0.65); font-size: 11px; line-height: 1.6; }
+  /* 响应式 */
+  @media (max-width: 600px) {
+    .arch-boxes-final { gap: 12px; padding-top: 150px; }
+    .final-box-content { width: 110px; padding: 16px 10px; }
+    .final-box-pedestal { width: 80px; height: 24px; }
+    .final-name { font-size: 11px; }
+    .final-role { font-size: 10px; }
+    .final-desc { font-size: 9px; }
+    .final-icon { width: 44px; height: 44px; font-size: 20px; }
+    .arch-cloud-final { width: 160px; padding: 14px 20px; }
+    .cloud-title-final { font-size: 13px; }
+    .cloud-icon-final { font-size: 28px; }
+  }
+  /* 产品架构图 - 图片版（已隐藏，恢复使用CSS原始版） */
+  .product-arch-ring, .product-arch-ring-v2, .product-arch-ring-v3, .product-arch-ring-final { display: none; }
 
   /* =========== HOME: Forward Looking =========== */
   .fwd-wrap {
@@ -379,10 +513,9 @@
   }
   .product-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: url("./assets/images/img01.png"), linear-gradient(rgba(0,180,216,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,216,0.07) 1px, transparent 1px);
-    background-size: cover, 40px 40px, 40px 40px;
-    background-position: center;
-    background-repeat: no-repeat, repeat, repeat;
+    background-image: linear-gradient(rgba(0,180,216,0.07) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0,180,216,0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
   .product-hero .section-title { color: white; }
   .product-hero .section-title .cyan { color: var(--cyan-main); }
@@ -441,10 +574,8 @@
   }
   .community-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: url("./assets/images/img05.png"), radial-gradient(circle at 20% 50%, rgba(244,162,97,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(0,180,216,0.15) 0%, transparent 50%);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: radial-gradient(circle at 20% 50%, rgba(244,162,97,0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 50%, rgba(0,180,216,0.08) 0%, transparent 50%);
   }
   .community-hero .section-title { color: white; }
   .community-hero .section-desc { color: rgba(255,255,255,0.75); margin: 0 auto; }
@@ -600,10 +731,8 @@
   }
   .about-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: url("./assets/images/img06.png"), radial-gradient(circle at 20% 30%, rgba(0,180,216,0.12) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(244,162,97,0.08) 0%, transparent 40%);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: radial-gradient(circle at 20% 30%, rgba(0,180,216,0.12) 0%, transparent 40%),
+                      radial-gradient(circle at 80% 70%, rgba(244,162,97,0.08) 0%, transparent 40%);
   }
   .about-hero .section-title { color: white; font-size: clamp(26px, 4vw, 46px); margin-bottom: 20px; }
   .about-hero .slogan {
@@ -744,20 +873,20 @@
 <!-- =========== NAVBAR =========== -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a class="nav-logo" href="http://127.0.0.1:8080/#" onclick="showPage(&#39;home&#39;)">
-      <img src="./assets/images/logo.png" alt="EaseLiving AI" class="logo-img" style="height:36px;">
+    <a class="nav-logo" href="#" onclick="showPage('home')">
+      <div class="logo-icon">居</div>
       <div class="logo-text">
         <span class="logo-cn">居易人工智能</span>
-        <span class="logo-en">EaseLiving AI</span>
+        <span class="logo-en">Easy Living AI</span>
       </div>
     </a>
     <div class="nav-links">
-      <a onclick="showPage(&#39;home&#39;)" id="nav-home" class="active">首页</a>
-      <a onclick="showPage(&#39;products&#39;)" id="nav-products">产品与服务</a>
-      <a onclick="showPage(&#39;community&#39;)" id="nav-community">智慧社区</a>
-      <a onclick="showPage(&#39;operations&#39;)" id="nav-operations">智慧运营</a>
-      <a onclick="showPage(&#39;showroom&#39;)" id="nav-showroom">展厅与体验</a>
-      <a onclick="showPage(&#39;about&#39;)" id="nav-about">关于我们</a>
+      <a onclick="showPage('home')" id="nav-home">首页</a>
+      <a onclick="showPage('products')" id="nav-products">产品与服务</a>
+      <a onclick="showPage('community')" id="nav-community">智慧社区</a>
+      <a onclick="showPage('operations')" id="nav-operations">智慧运营</a>
+      <a onclick="showPage('showroom')" id="nav-showroom">展厅与体验</a>
+      <a onclick="showPage('about')" id="nav-about">关于我们</a>
     </div>
     <div class="hamburger" onclick="toggleMobile()" id="hamburger">
       <span></span><span></span><span></span>
@@ -767,12 +896,12 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a onclick="showPage(&#39;home&#39;);closeMobile()">首页</a>
-  <a onclick="showPage(&#39;products&#39;);closeMobile()">产品与服务</a>
-  <a onclick="showPage(&#39;community&#39;);closeMobile()">智慧社区</a>
-  <a onclick="showPage(&#39;operations&#39;);closeMobile()">智慧运营</a>
-  <a onclick="showPage(&#39;showroom&#39;);closeMobile()">展厅与体验</a>
-  <a onclick="showPage(&#39;about&#39;);closeMobile()">关于我们</a>
+  <a onclick="showPage('home');closeMobile()">首页</a>
+  <a onclick="showPage('products');closeMobile()">产品与服务</a>
+  <a onclick="showPage('community');closeMobile()">智慧社区</a>
+  <a onclick="showPage('operations');closeMobile()">智慧运营</a>
+  <a onclick="showPage('showroom');closeMobile()">展厅与体验</a>
+  <a onclick="showPage('about');closeMobile()">关于我们</a>
 </div>
 
 <!-- ===================================================
@@ -783,7 +912,7 @@
   <!-- Banner Slider -->
   <div class="banner-slider" id="bannerSlider">
     <!-- Slide 1 -->
-    <div class="banner-slide" id="slide-0">
+    <div class="banner-slide active" id="slide-0">
       <div class="banner-bg banner-bg-1">
         <div class="banner-deco">
           <div class="banner-deco-grid"></div>
@@ -795,7 +924,7 @@
         <div class="banner-label">Space Cube 空间智能体</div>
         <h1 class="banner-title">让每一栋楼，<br>都成为智慧社区</h1>
         <p class="banner-sub">Space Cube空间智能体，用智慧创造价值</p>
-        <a class="btn btn-orange" onclick="showPage(&#39;operations&#39;)">了解智慧运营 →</a>
+        <a class="btn btn-cyan" onclick="showPage('operations')">了解智慧运营 →</a>
       </div>
     </div>
     <!-- Slide 2 -->
@@ -811,11 +940,11 @@
         <div class="banner-label">智慧社区解决方案</div>
         <h1 class="banner-title">让每一个空间，<br>都学会思考</h1>
         <p class="banner-sub">Space Cube空间智能体，让科技服务于人</p>
-        <a class="btn btn-orange" onclick="showPage(&#39;community&#39;)">体验智慧生活 →</a>
+        <a class="btn btn-cyan" onclick="showPage('community')">体验智慧生活 →</a>
       </div>
     </div>
     <!-- Slide 3 -->
-    <div class="banner-slide active" id="slide-2">
+    <div class="banner-slide" id="slide-2">
       <div class="banner-bg banner-bg-3">
         <div class="banner-deco">
           <div class="banner-deco-grid"></div>
@@ -827,14 +956,14 @@
         <div class="banner-label">具身智能 · 前瞻布局</div>
         <h1 class="banner-title">人形机器人进入家庭前的<br>"数据训练场"</h1>
         <p class="banner-sub">Space Cube空间智能体，为人形机器人进入家庭积累每一刻的智慧和记忆</p>
-        <a class="btn btn-orange" onclick="showPage(&#39;about&#39;);setTimeout(()=&gt;scrollToSection(&#39;forward&#39;),300)">探索技术远景 →</a>
+        <a class="btn btn-cyan" onclick="showPage('about');setTimeout(()=>scrollToSection('forward'),300)">探索技术远景 →</a>
       </div>
     </div>
     <!-- Dots -->
     <div class="banner-dots">
-      <div class="banner-dot" onclick="goToSlide(0)"></div>
+      <div class="banner-dot active" onclick="goToSlide(0)"></div>
       <div class="banner-dot" onclick="goToSlide(1)"></div>
-      <div class="banner-dot active" onclick="goToSlide(2)"></div>
+      <div class="banner-dot" onclick="goToSlide(2)"></div>
     </div>
   </div>
 
@@ -858,10 +987,9 @@
           <p class="section-desc">
             我们是一家"空间智能操作系统"公司——通过自研的AI智能设备Space Cube（空间智能体Box），为建筑提供从室内到社区的多场景AI智能应用方案，致力于打造科技服务于人、舒适宜居的AI智慧社区。
           </p>
-          <a class="btn btn-orange" onclick="showPage(&#39;products&#39;)">了解我们的产品 →</a>
+          <a class="btn btn-orange" onclick="showPage('products')">了解我们的产品 →</a>
         </div>
-        <img src="./assets/images/content_img01.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:360px;" alt="" />
-        
+        <img src="assets/Futuristic_AI_space_intelligen_2026-04-20T10-35-48.png" alt="智慧社区效果图" class="positioning-img" style="width:100%;height:360px;object-fit:cover;border-radius:12px;">
       </div>
     </div>
   </section>
@@ -908,7 +1036,7 @@
         </div>
       </div>
       <div class="text-center">
-        <a class="btn btn-orange" onclick="showPage(&#39;products&#39;)">探索产品详情 →</a>
+        <a class="btn btn-orange" onclick="showPage('products')">探索产品详情 →</a>
       </div>
     </div>
   </section>
@@ -923,10 +1051,9 @@
           <div class="fwd-highlight">
             我们是人形机器人进入家庭前的"数据训练场"和"环境预埋基础设施"。三大盒子形成强大的空间智能体，成为具身智能机器人的"操作系统"和"数据底座"。
           </div>
-          <a class="btn btn-orange" onclick="showPage(&#39;about&#39;);setTimeout(()=&gt;scrollToSection(&#39;forward&#39;),300)">了解我们的技术远景 →</a>
+          <a class="btn btn-orange" onclick="showPage('about');setTimeout(()=>scrollToSection('forward'),300)">了解我们的技术远景 →</a>
         </div>
-        <img src="./assets/images/content_img02.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:380px;" alt="" />
-        
+        <img src="assets/AI_home_robot_concept__humanoi_2026-04-20T10-34-00.png" alt="人形机器人概念图" style="width:100%;height:380px;object-fit:cover;border-radius:12px;">
       </div>
     </div>
   </section>
@@ -935,13 +1062,12 @@
   <section class="section section-alt">
     <div class="container">
       <div class="exp-wrap">
-        <img src="./assets/images/content_img03.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:340px; width:100%;" alt="" />
-        
+        <img src="assets/Space_Cube_AI_smart_home_devic_2026-04-20T10-29-02.png" alt="展厅实景效果图" class="exp-img" style="width:100%;height:340px;object-fit:cover;border-radius:12px;">
         <div>
           <span class="section-tag">亲身体验</span>
           <h2 class="section-title">亲身体验<br><span class="cyan">会思考的空间</span></h2>
           <p class="section-desc">50-100㎡实景智慧房屋，现场体验智慧社区场景。三大盒子实景联动，四大生活场景沉浸体验。</p>
-          <a class="btn btn-orange" onclick="showPage(&#39;showroom&#39;)">预约参观体验 →</a>
+          <a class="btn btn-orange" onclick="showPage('showroom')">预约参观体验 →</a>
         </div>
       </div>
     </div>
@@ -956,7 +1082,7 @@
     <!-- Section Header -->
     <div style="text-align: center; margin-bottom: 50px;">
       <span class="section-tag">新闻动态</span>
-      <h2 class="section-title" style="margin-top: 16px; font-size: clamp(24px, 4vw, 36px);">
+      <h2 class="section-title" style="margin-top: 16px;">
         <span class="cyan">News</span> & Updates
       </h2>
       <p class="section-desc" style="max-width: 600px; margin: 16px auto 0;">
@@ -970,7 +1096,7 @@
       <!-- News Card 1: Image + Text -->
       <article class="news-card" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s;">
         <div class="news-image" style="height: 200px; overflow: hidden;">
-          <img src="./assets/images/content_img01.png" alt="Space Cube 发布" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="assets/images/content_img01.png" alt="Space Cube 发布" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="news-content" style="padding: 24px;">
           <div class="news-meta" style="display: flex; gap: 12px; margin-bottom: 12px;">
@@ -992,7 +1118,7 @@
       <!-- News Card 2: Video Embed -->
       <article class="news-card" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s;">
         <div class="news-video" style="height: 200px; background: var(--text-dark); display: flex; align-items: center; justify-content: center; position: relative;">
-          <video poster="./assets/images/content_img02.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+          <video poster="assets/images/content_img02.png" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
             <source src="#" type="video/mp4">
           </video>
           <div style="position: absolute; text-align: center;">
@@ -1034,7 +1160,7 @@
           </p>
           <div class="news-links" style="border-top: 1px solid #eee; padding-top: 16px; margin-top: 8px;">
             <p style="font-size: 12px; color: #999; margin-bottom: 8px;">相关链接：</p>
-            <a href="https://github.com/loonmama/1" target="_blank" style="color: var(--cyan-main); font-size: 13px; text-decoration: none; display: block; margin-bottom: 4px;">
+            <a href="#" target="_blank" style="color: var(--cyan-main); font-size: 13px; text-decoration: none; display: block; margin-bottom: 4px;">
               → 公司官网
             </a>
             <a href="#" style="color: var(--cyan-main); font-size: 13px; text-decoration: none; display: block;">
@@ -1046,23 +1172,859 @@
 
     </div>
 
-    <!-- How to Add News Instructions -->
-    <div class="news-guide" style="margin-top: 50px; padding: 30px; background: linear-gradient(135deg, rgba(0,180,216,0.05), rgba(244,162,97,0.05)); border-radius: 16px; border: 1px dashed var(--cyan-main);">
-      <h4 style="font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px;">
-        如何添加新新闻
-      </h4>
-      <p style="font-size: 13px; color: #666; line-height: 1.8; margin: 0;">
-        复制以上新闻卡片代码块，修改以下内容即可添加新新闻：<br>
-        • 图片：替换 src 为新图片路径<br>
-        • 视频：将 video src 替换为视频 URL<br>
-        • 链接：将 href="#" 替换为实际链接地址<br>
-        • 文字：修改标题、摘要、日期等文本内容
-      </p>
-    </div>
-
   </div>
 </section>
 
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px;">
+            <div class="logo-icon">居</div>
+            <div class="logo-text">
+              <span class="logo-cn">居易人工智能</span>
+              <span class="logo-en">Easy Living AI</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">空间智能操作系统 · 让每一栋楼都成为智慧社区<br>智慧栖居，舒适生活</p>
+        </div>
+        <div>
+          <div class="footer-col-title">产品</div>
+          <a class="footer-col-link" onclick="showPage('products')">Space Cube 产品详情</a>
+          <a class="footer-col-link" onclick="showPage('products')">空间智联Box</a>
+          <a class="footer-col-link" onclick="showPage('products')">社区智联Box</a>
+          <a class="footer-col-link" onclick="showPage('products')">机器人交互Box</a>
+        </div>
+        <div>
+          <div class="footer-col-title">解决方案</div>
+          <a class="footer-col-link" onclick="showPage('community')">智慧社区</a>
+          <a class="footer-col-link" onclick="showPage('operations')">智慧运营</a>
+          <a class="footer-col-link" onclick="showPage('showroom')">展厅体验</a>
+        </div>
+        <div>
+          <div class="footer-col-title">关于</div>
+          <a class="footer-col-link" onclick="showPage('about')">公司介绍</a>
+          <a class="footer-col-link" onclick="showPage('about')">品牌故事</a>
+          <a class="footer-col-link" onclick="showPage('showroom')">预约参观</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利 &nbsp;|&nbsp; Easy Living AI Co., Ltd.</div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ===================================================
+     PAGE 2: PRODUCTS & SERVICES
+     =================================================== -->
+<div id="products" class="page-section">
+  <div class="product-hero">
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-tag">核心产品</span>
+      <h1 class="section-title" style="color:white;margin-bottom:16px;">
+        <span class="cyan">Space Cube</span> —— AI空间智能体<br>智慧场景的底层操作系统
+      </h1>
+      <p class="section-desc">一个云端大脑 + 三大智联盒子，为建筑提供从室内到社区的多场景AI智能应用方案</p>
+    </div>
+  </div>
+
+  <!-- Product Architecture -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag">产品架构</span>
+        <h2 class="section-title">一个云端大脑 + <span class="cyan">三大智联盒子</span></h2>
+        <p class="section-desc">鼠标悬停每个盒子，了解详细能力介绍</p>
+      </div>
+      <!-- 产品架构 - 原始CSS版 -->
+      <div class="product-arch" style="margin-top:40px;">
+        <div class="arch-title">AIoT云平台 · 空间智能大脑<br><span style="font-size:14px;opacity:0.7;font-weight:400;">统一数据中台 · 智能决策引擎 · 远程管理</span></div>
+        <div class="arch-cloud">
+          <div class="arch-cloud-box">
+            ☁️ AIoT云平台
+            <div class="arch-box-sub">数据汇聚 · 智能决策 · 远程管理</div>
+          </div>
+        </div>
+        <div class="arch-connector">
+          <div class="arch-dots">
+            <div class="arch-dot-line"><div class="arch-dot-circle"></div><div class="arch-line-v"></div></div>
+            <div class="arch-dot-line"><div class="arch-dot-circle"></div><div class="arch-line-v"></div></div>
+            <div class="arch-dot-line"><div class="arch-dot-circle"></div><div class="arch-line-v"></div></div>
+          </div>
+        </div>
+        <div class="arch-boxes">
+          <div class="arch-box">
+            <div class="arch-box-icon">🏠</div>
+            <div class="arch-box-name">空间智联Box</div>
+            <div class="arch-box-role">懂你的生活管家</div>
+            <div class="arch-box-desc">家庭/室内空间智能化</div>
+          </div>
+          <div class="arch-box">
+            <div class="arch-box-icon">🏢</div>
+            <div class="arch-box-name">社区智联Box</div>
+            <div class="arch-box-role">守秩序的系统管家</div>
+            <div class="arch-box-desc">社区/楼宇公共区域管理</div>
+          </div>
+          <div class="arch-box">
+            <div class="arch-box-icon">🤖</div>
+            <div class="arch-box-name">机器人交互Box</div>
+            <div class="arch-box-role">会干活的调度总管</div>
+            <div class="arch-box-desc">跨空间机器人集群调度</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Box Details -->
+  <section class="product-boxes-section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <span class="section-tag">三大智联盒子</span>
+        <h2 class="section-title">各司其职，协同作战</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;">
+
+        <!-- Box 1 -->
+        <div class="product-box-card">
+          <div class="product-box-header">
+            <div class="product-box-icon">🏠</div>
+            <div class="product-box-header-text">
+              <div class="product-box-name">空间智联Box —— 懂你的生活管家</div>
+              <div class="product-box-tagline">让每个室内空间有温度、有记忆</div>
+              <div class="product-box-scene">服务场景：家庭 / 室内空间</div>
+            </div>
+          </div>
+          <div class="product-box-body">
+            <p class="product-box-mission">连接家用电器，感知人的意图，提供个性化、舒适、便捷的生活体验。通过持续的感知与学习，空间智联Box逐步形成专属于每位居住者的"空间画像"，让家真正懂你。</p>
+            <div class="product-box-caps">
+              <div class="product-box-caps-title">核心能力</div>
+              <div class="product-box-cap-item">语音 / 触控指令接收与执行</div>
+              <div class="product-box-cap-item">温湿度 / 光照 / 人体存在感知</div>
+              <div class="product-box-cap-item">家电智能控制与场景联动</div>
+              <div class="product-box-cap-item">学习个人生活习惯，自动优化体验</div>
+            </div>
+            <div class="product-box-tags">
+              <span class="tag">多模态感知</span>
+              <span class="tag">习惯学习</span>
+              <span class="tag">隐私保护</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="product-box-card">
+          <div class="product-box-header">
+            <div class="product-box-icon">🏢</div>
+            <div class="product-box-header-text">
+              <div class="product-box-name">社区智联Box —— 守秩序的系统管家</div>
+              <div class="product-box-tagline">让社区公共空间安全、高效、有序</div>
+              <div class="product-box-scene">服务场景：社区 / 楼宇公共区域</div>
+            </div>
+          </div>
+          <div class="product-box-body">
+            <p class="product-box-mission">连接公共系统设备，保障社区安全、秩序、高效运转；响应社区共同需求，将分散的管理节点统一纳入智能运营体系。</p>
+            <div class="product-box-caps">
+              <div class="product-box-caps-title">核心能力</div>
+              <div class="product-box-cap-item">监控 / 门禁 / 电梯 / 消防设备接入</div>
+              <div class="product-box-cap-item">设备状态实时监测与预警</div>
+              <div class="product-box-cap-item">规则化联动执行，自动响应事件</div>
+              <div class="product-box-cap-item">社区事件记录与区块链存证</div>
+            </div>
+            <div class="product-box-tags">
+              <span class="tag">设备互联</span>
+              <span class="tag">规则引擎</span>
+              <span class="tag">安全联动</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="product-box-card">
+          <div class="product-box-header">
+            <div class="product-box-icon">🤖</div>
+            <div class="product-box-header-text">
+              <div class="product-box-name">机器人交互Box —— 会干活的调度总管</div>
+              <div class="product-box-tagline">让机器人真正融入社区服务体系</div>
+              <div class="product-box-scene">服务场景：跨空间（室内 + 室外）</div>
+            </div>
+          </div>
+          <div class="product-box-body">
+            <p class="product-box-mission">对接各类机器人及自动化设备，实现集群调度、任务协同与外部服务联动。作为人形机器人进入家庭的"基础设施预埋层"，积累宝贵的空间行为数据。</p>
+            <div class="product-box-caps">
+              <div class="product-box-caps-title">核心能力</div>
+              <div class="product-box-cap-item">配送 / 巡更 / 清洁机器人接入</div>
+              <div class="product-box-cap-item">智能任务分配与优先级调度</div>
+              <div class="product-box-cap-item">多机协同，避免冲突与重复</div>
+              <div class="product-box-cap-item">外部服务联动（快递、医疗、应急）</div>
+            </div>
+            <div class="product-box-tags">
+              <span class="tag">集群调度</span>
+              <span class="tag">任务协同</span>
+              <span class="tag">服务集成</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Highlights -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag">技术亮点</span>
+        <h2 class="section-title">四大核心技术，<span class="cyan">构建可信智慧空间</span></h2>
+      </div>
+      <div class="card-grid-4">
+        <div class="card tech-card">
+          <div class="tech-card-icon">🛡️</div>
+          <div class="tech-card-title">高维多元安全识别技术</div>
+          <div class="tech-card-desc">通过多维数字安全认证实现对人员身份的精准感知与识别，在保障安全的同时，全程保护用户隐私。</div>
+        </div>
+        <div class="card tech-card">
+          <div class="tech-card-icon">🌐</div>
+          <div class="tech-card-title">空间物联网技术</div>
+          <div class="tech-card-desc">打破设备与机器人孤岛，构建全域无感的设备互联网络，实现异构设备的统一接入与协同。</div>
+        </div>
+        <div class="card tech-card">
+          <div class="tech-card-icon">🔐</div>
+          <div class="tech-card-title">加密数据通讯技术</div>
+          <div class="tech-card-desc">构建全链路数据安全闭环，确保数据在传输与存储过程中绝对可信，杜绝数据泄漏与篡改。</div>
+        </div>
+        <div class="card tech-card">
+          <div class="tech-card-icon">⛓️</div>
+          <div class="tech-card-title">区块链信任技术</div>
+          <div class="tech-card-desc">实现数据全生命周期不可篡改与可追溯，适用于租赁合同、计费数据等高价值业务场景的信任保障。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="section">
+    <div class="container text-center">
+      <h2 class="section-title" style="margin-bottom:12px;">Space Cube 能为您创造什么？</h2>
+      <p class="section-desc">无论您关注居住体验还是楼宇运营效益，Space Cube都有答案</p>
+      <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn-orange" onclick="showPage('community')">看看它能创造怎样的智慧生活 →</a>
+        <a class="btn btn-outline-cyan" onclick="showPage('operations')">看看它能如何优化楼宇运营 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px;">
+            <div class="logo-icon">居</div>
+            <div class="logo-text">
+              <span class="logo-cn">居易人工智能</span>
+              <span class="logo-en">Easy Living AI</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">空间智能操作系统 · 让每一栋楼都成为智慧社区</p>
+        </div>
+        <div>
+          <div class="footer-col-title">导航</div>
+          <a class="footer-col-link" onclick="showPage('home')">首页</a>
+          <a class="footer-col-link" onclick="showPage('community')">智慧社区</a>
+          <a class="footer-col-link" onclick="showPage('operations')">智慧运营</a>
+          <a class="footer-col-link" onclick="showPage('showroom')">展厅与体验</a>
+          <a class="footer-col-link" onclick="showPage('about')">关于我们</a>
+        </div>
+        <div></div><div></div>
+      </div>
+      <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利</div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ===================================================
+     PAGE 3: COMMUNITY
+     =================================================== -->
+<div id="community" class="page-section">
+  <div class="community-hero">
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-tag">智慧社区</span>
+      <h1 class="section-title" style="color:white;">
+        让您的楼宇，成为年轻白领<br><span class="cyan">向往并首选的智慧社区</span>
+      </h1>
+      <p class="section-desc">年轻白领想要什么？便捷、科技感、安全、社区氛围。<br>Space Cube让您的楼宇一站式满足。</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:48px;">
+        <span class="section-tag">四大生活场景</span>
+        <h2 class="section-title">一天的智慧生活，<span class="cyan">从早到晚都在掌控</span></h2>
+      </div>
+      <div class="scene-grid">
+        <!-- Scene 1 -->
+        <div class="scene-card">
+          <div class="scene-card-header">
+            <div class="scene-time">08:00 AM</div>
+            <div class="scene-card-title">离家模式</div>
+          </div>
+          <div class="scene-card-body">
+            <img src="assets/Futuristic_smart_home_product__2026-04-20T10-32-01.png" alt="离家场景示意图" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;">
+            <p class="scene-desc">系统一键接管，自动关窗、断电、关空调，安防雷达上线，隐患瞬间清零。出门无忧，一切交给Space Cube。</p>
+            <div class="scene-meta">
+              <span class="scene-meta-item product">社区智联Box + 空间智联Box联动</span>
+              <span class="scene-meta-item value">降低空置能耗 · 提升安全口碑</span>
+            </div>
+          </div>
+        </div>
+        <!-- Scene 2 -->
+        <div class="scene-card">
+          <div class="scene-card-header">
+            <div class="scene-time">06:30 PM</div>
+            <div class="scene-card-title">归家模式</div>
+          </div>
+          <div class="scene-card-body">
+            <img src="assets/Modern_smart_home_living_room__2026-04-20T10-32-46.png" alt="归家场景示意图" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;">
+            <p class="scene-desc">基于LBS位置预判，提前调节适宜室温与个性化灯光，进门即享最佳环境。家，在你到来之前就准备好了。</p>
+            <div class="scene-meta">
+              <span class="scene-meta-item product">空间智联Box · 习惯学习</span>
+              <span class="scene-meta-item value">提升租客续租率</span>
+            </div>
+          </div>
+        </div>
+        <!-- Scene 3 -->
+        <div class="scene-card">
+          <div class="scene-card-header">
+            <div class="scene-time">周末</div>
+            <div class="scene-card-title">社区互动</div>
+          </div>
+          <div class="scene-card-body">
+            <img src="assets/Futuristic_AI_space_intelligen_2026-04-20T10-35-48.png" alt="社区互动场景示意图" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;">
+            <p class="scene-desc">在线智能拼单，访客临时门禁码自动生成，打破钢筋水泥的隔阂，让邻里关系更有温度。</p>
+            <div class="scene-meta">
+              <span class="scene-meta-item product">社区智联Box + 区块链信任</span>
+              <span class="scene-meta-item value">增强社区粘性 · 降低管理投诉</span>
+            </div>
+          </div>
+        </div>
+        <!-- Scene 4 -->
+        <div class="scene-card">
+          <div class="scene-card-header">
+            <div class="scene-time">24 / 7</div>
+            <div class="scene-card-title">紧急服务</div>
+          </div>
+          <div class="scene-card-body">
+            <img src="assets/AI_smart_robot_in_modern_home__2026-04-20T10-40-28.png" alt="紧急服务场景示意图" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;">
+            <p class="scene-desc">专为独居住户设计，语音一键求助直达云端，联动无人车极速配送应急物资。独居也安心，有我在。</p>
+            <div class="scene-meta">
+              <span class="scene-meta-item product">机器人交互Box + 社区智联Box</span>
+              <span class="scene-meta-item value">打造安全标签 · 降低法律风险</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:48px;">
+        <a class="btn btn-orange" onclick="showPage('showroom')">让您的楼宇拥有这些场景 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px;">
+            <div class="logo-icon">居</div>
+            <div class="logo-text">
+              <span class="logo-cn">居易人工智能</span>
+              <span class="logo-en">Easy Living AI</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">空间智能操作系统 · 让每一栋楼都成为智慧社区</p>
+        </div>
+        <div>
+          <div class="footer-col-title">导航</div>
+          <a class="footer-col-link" onclick="showPage('home')">首页</a>
+          <a class="footer-col-link" onclick="showPage('products')">产品与服务</a>
+          <a class="footer-col-link" onclick="showPage('operations')">智慧运营</a>
+          <a class="footer-col-link" onclick="showPage('showroom')">展厅与体验</a>
+          <a class="footer-col-link" onclick="showPage('about')">关于我们</a>
+        </div>
+        <div></div><div></div>
+      </div>
+      <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利</div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ===================================================
+     PAGE 4: OPERATIONS
+     =================================================== -->
+<div id="operations" class="page-section">
+  <div class="ops-hero">
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-tag">智慧运营</span>
+      <h1 class="section-title" style="color:white;">
+        Space Cube不仅是您的智能管家，<br><span class="cyan">更是您的数字运营总监</span>
+      </h1>
+      <p class="section-desc">
+        降本、增效、差异化竞争——让您的楼宇运营成本降低<span class="highlight-num" style="font-size:20px;font-weight:900;">49%</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Three Value Cards -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <span class="section-tag">三大核心价值</span>
+        <h2 class="section-title">用AI重塑楼宇运营<span class="cyan">竞争力</span></h2>
+      </div>
+      <div class="card-grid-3">
+        <div class="card value-card">
+          <div class="value-card-number">55<span style="font-size:22px;">%</span></div>
+          <div class="value-card-label">人力成本节约</div>
+          <div class="value-card-title">📉 降本</div>
+          <div class="value-card-desc">减少固定人力依赖，降低能耗。自动化执行日常运营任务，让人力专注于高价值工作。<br><br>人力成本节约 <strong style="color:var(--orange-dark);">55%</strong> | 能耗节约 <strong style="color:var(--orange-dark);">30%</strong></div>
+        </div>
+        <div class="card value-card">
+          <div class="value-card-number">60<span style="font-size:22px;">%</span></div>
+          <div class="value-card-label">故障响应时间缩短</div>
+          <div class="value-card-title">⚡ 增效</div>
+          <div class="value-card-desc">自动化运营，减少管理负担。设备预测维护，在故障发生前主动干预，降低损失。<br><br>设备预测维护 | 故障响应时间缩短 <strong style="color:var(--orange-dark);">60%</strong></div>
+        </div>
+        <div class="card value-card">
+          <div class="value-card-number">15<span style="font-size:22px;">%</span></div>
+          <div class="value-card-label">租金溢价最高可达</div>
+          <div class="value-card-title">💰 增收</div>
+          <div class="value-card-desc">打造智慧社区卖点，提升租金和出租率。差异化竞争力，吸引年轻白领租客。<br><br>租金溢价可达 <strong style="color:var(--orange-dark);">8-15%</strong> | 出租率提升</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost Comparison -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <span class="section-tag">成本对比</span>
+        <h2 class="section-title">以<span class="cyan">100间公寓</span>规模为例</h2>
+        <p class="section-desc">传统模式 vs 智慧运营模式——数字说话</p>
+      </div>
+
+      <!-- Bar Chart Visual -->
+      <div class="cost-table-wrap" style="margin-bottom:32px;">
+        <div class="bar-chart-wrap">
+          <div style="display:flex;gap:24px;margin-bottom:24px;flex-wrap:wrap;align-items:center;">
+            <div style="display:flex;align-items:center;gap:8px;"><div style="width:14px;height:14px;border-radius:3px;background:rgba(150,150,150,0.4);"></div><span style="font-size:13px;color:#666;">传统模式</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><div style="width:14px;height:14px;border-radius:3px;background:var(--cyan-main);"></div><span style="font-size:13px;color:#666;">智慧模式</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:13px;font-weight:600;color:var(--orange-dark);">%</span><span style="font-size:13px;color:#666;">节约率</span></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label">用工成本</div>
+            <div class="bar-track">
+              <div class="bar-fill-old" style="width:100%;">699,600元/年</div>
+              <div class="bar-fill-new" style="width:45.5%;">318,000元/年</div>
+            </div>
+            <div class="bar-pct">节约55%</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label">能耗成本</div>
+            <div class="bar-track">
+              <div class="bar-fill-old" style="width:100%;">120,000元/年</div>
+              <div class="bar-fill-new" style="width:70%;">84,000元/年</div>
+            </div>
+            <div class="bar-pct">节约30%</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label">维修物料</div>
+            <div class="bar-track">
+              <div class="bar-fill-old" style="width:100%;">55,000元/年</div>
+              <div class="bar-fill-new" style="width:56.4%;">31,000元/年</div>
+            </div>
+            <div class="bar-pct">节约44%</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-label">管理运营</div>
+            <div class="bar-track">
+              <div class="bar-fill-old" style="width:100%;">85,000元/年</div>
+              <div class="bar-fill-new" style="width:51.5%;">43,800元/年</div>
+            </div>
+            <div class="bar-pct">节约48%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Table -->
+      <div class="cost-table-wrap">
+        <div class="cost-table-header">
+          <span style="text-align:left;">费用项目</span>
+          <span>传统模式（元/年）</span>
+          <span>智慧模式（元/年）</span>
+          <span>节约率</span>
+        </div>
+        <div class="cost-row"><div class="cost-cell">用工成本</div><div class="cost-cell old">699,600</div><div class="cost-cell new">318,000</div><div class="cost-cell save">55%</div></div>
+        <div class="cost-row"><div class="cost-cell">能耗成本</div><div class="cost-cell old">120,000</div><div class="cost-cell new">84,000</div><div class="cost-cell save">30%</div></div>
+        <div class="cost-row"><div class="cost-cell">维修物料</div><div class="cost-cell old">55,000</div><div class="cost-cell new">31,000</div><div class="cost-cell save">44%</div></div>
+        <div class="cost-row"><div class="cost-cell">管理运营</div><div class="cost-cell old">85,000</div><div class="cost-cell new">43,800</div><div class="cost-cell save">48%</div></div>
+        <div class="cost-row total">
+          <div class="cost-cell">年度总计</div>
+          <div class="cost-cell old" style="font-size:16px;font-weight:700;text-decoration:line-through;">989,600</div>
+          <div class="cost-cell new" style="font-size:16px;">500,800</div>
+          <div class="cost-cell save" style="font-size:22px;color:var(--orange-dark);">49%</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:12px;">
+        <span style="font-size:13px;color:#888;">* 数据基于典型100间公寓规模测算，实际效果因楼盘规模和管理方式有所差异</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forward Value -->
+  <section class="section section-alt" id="ops-forward">
+    <div class="container">
+      <div style="max-width:800px;margin:0 auto;text-align:center;">
+        <span class="section-tag">前瞻价值</span>
+        <h2 class="section-title">您的楼宇不仅是资产，<br>更是<span class="cyan">未来人形机器人数据产业链的一环</span></h2>
+        <p class="section-desc">
+          部署Space Cube的楼宇，将积累宝贵的空间行为数据。这些数据是训练人形机器人的关键资源。未来，您不仅是楼宇业主，更是具身智能产业的数据伙伴。
+        </p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
+          <a class="btn btn-orange" onclick="showPage('about');setTimeout(()=>scrollToSection('forward'),300)">了解我们的技术远景 →</a>
+          <a class="btn btn-cyan" onclick="showPage('showroom')">立即预约方案演示 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px;">
+            <div class="logo-icon">居</div>
+            <div class="logo-text">
+              <span class="logo-cn">居易人工智能</span>
+              <span class="logo-en">Easy Living AI</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">空间智能操作系统 · 让每一栋楼都成为智慧社区</p>
+        </div>
+        <div>
+          <div class="footer-col-title">导航</div>
+          <a class="footer-col-link" onclick="showPage('home')">首页</a>
+          <a class="footer-col-link" onclick="showPage('products')">产品与服务</a>
+          <a class="footer-col-link" onclick="showPage('community')">智慧社区</a>
+          <a class="footer-col-link" onclick="showPage('showroom')">展厅与体验</a>
+          <a class="footer-col-link" onclick="showPage('about')">关于我们</a>
+        </div>
+        <div></div><div></div>
+      </div>
+      <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利</div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ===================================================
+     PAGE 5: SHOWROOM
+     =================================================== -->
+<div id="showroom" class="page-section">
+  <div class="showroom-hero">
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-tag">展厅与体验</span>
+      <h1 class="section-title" style="color:white;">
+        亲身体验，<span class="cyan">如何让您的楼宇更智慧</span>
+      </h1>
+      <p class="section-desc">50-100㎡实景智慧房屋 · 三大盒子实景联动 · 四大生活场景沉浸体验</p>
+    </div>
+  </div>
+
+  <!-- Gallery + Info -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:48px;" class="showroom-info-wrap">
+        <div>
+          <span class="section-tag">展厅介绍</span>
+          <h2 class="section-title" style="margin-bottom:20px;"><span class="cyan">Space Cube</span> 实景体验中心</h2>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px;">
+            <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+              <span style="font-size:22px;">📍</span>
+              <div><div style="font-size:13px;color:#888;">展厅地址</div><div style="font-weight:600;color:var(--text-dark);">广州市 · 具体地址以预约确认为准</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+              <span style="font-size:22px;">📐</span>
+              <div><div style="font-size:13px;color:#888;">展厅面积</div><div style="font-weight:600;color:var(--text-dark);">50-100㎡ 实景智慧房屋</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+              <span style="font-size:22px;">🕐</span>
+              <div><div style="font-size:13px;color:#888;">开放时间</div><div style="font-weight:600;color:var(--text-dark);">工作日 10:00–18:00（需预约）</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+              <span style="font-size:22px;">✨</span>
+              <div><div style="font-size:13px;color:#888;">展示内容</div><div style="font-weight:600;color:var(--text-dark);">三大盒子实景联动 + 四大生活场景沉浸体验</div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="showroom-gallery">
+            <img src="assets/Space_Cube_AI_smart_home_devic_2026-04-20T10-29-02.png" alt="展厅主场景实景图" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+            <div class="showroom-gallery-side">
+              <img src="assets/Modern_smart_home_living_room__2026-04-20T10-32-46.png" alt="智能灯光场景" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+              <img src="assets/AI_smart_robot_in_modern_home__2026-04-20T10-40-28.png" alt="机器人交互演示" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section class="section">
+    <div class="container" style="max-width:800px;">
+      <div class="form-wrap">
+        <div class="form-title">预约参观体验</div>
+        <div class="form-subtitle">填写以下信息，销售顾问将在1个工作日内与您确认参观时间</div>
+        <form id="bookingForm" onsubmit="submitForm(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">姓名<span class="required">*</span></label>
+              <input type="text" class="form-input" placeholder="请输入您的姓名" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">手机号<span class="required">*</span></label>
+              <input type="tel" class="form-input" placeholder="请输入手机号" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">公司 / 楼宇物业公司<span class="required">*</span></label>
+              <input type="text" class="form-input" placeholder="请输入公司名称" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">职位<span class="required">*</span></label>
+              <input type="text" class="form-input" placeholder="请输入您的职位" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">楼宇规模</label>
+              <select class="form-select">
+                <option value="">请选择楼宇规模</option>
+                <option value="small">&lt;50间</option>
+                <option value="medium">50-200间</option>
+                <option value="large">&gt;200间</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">意向参观时间</label>
+              <input type="date" class="form-input">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">备注（可选）</label>
+              <textarea class="form-textarea" placeholder="如：最关心成本节约 / 租户体验 / 技术方案 / 机器人方向..."></textarea>
+            </div>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-orange" style="width:100%;justify-content:center;padding:16px;">提交预约</button>
+          </div>
+          <p class="form-note">* 提交后，我们的销售顾问将尽快联系您安排参观</p>
+          <div class="success-msg" id="successMsg">
+            ✅ 预约信息已提交！销售顾问会尽快联系您，感谢您对居易人工智能的关注！
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px;">
+            <div class="logo-icon">居</div>
+            <div class="logo-text">
+              <span class="logo-cn">居易人工智能</span>
+              <span class="logo-en">Easy Living AI</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">空间智能操作系统 · 让每一栋楼都成为智慧社区</p>
+        </div>
+        <div>
+          <div class="footer-col-title">导航</div>
+          <a class="footer-col-link" onclick="showPage('home')">首页</a>
+          <a class="footer-col-link" onclick="showPage('products')">产品与服务</a>
+          <a class="footer-col-link" onclick="showPage('community')">智慧社区</a>
+          <a class="footer-col-link" onclick="showPage('operations')">智慧运营</a>
+          <a class="footer-col-link" onclick="showPage('about')">关于我们</a>
+        </div>
+        <div></div><div></div>
+      </div>
+      <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利</div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ===================================================
+     PAGE 6: ABOUT
+     =================================================== -->
+<div id="about" class="page-section">
+  <!-- Hero -->
+  <div class="about-hero">
+    <div class="container" style="position:relative;z-index:1;">
+      <h1 class="section-title">让每一栋楼，都变成智慧社区；<br><span class="cyan">让每一个空间，都学会思考</span></h1>
+      <div class="slogan">智慧栖居，舒适生活</div>
+      <p class="section-desc">
+        我们是一家"空间智能操作系统"公司——通过自研的AI智能设备Space Cube（空间智能体Box），为建筑提供从室内到社区的多场景AI智能应用方案，致力于打造科技服务于人、舒适宜居的AI智慧社区。
+      </p>
+    </div>
+  </div>
+
+  <!-- Brand Story -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="story-wrap">
+        <div>
+          <span class="section-tag">品牌故事</span>
+          <h2 class="section-title"><span class="cyan">"居易"</span>的由来</h2>
+          <div class="story-quote">
+            "君子居易以俟命"<br>——《礼记·中庸》
+          </div>
+          <p style="font-size:15px;color:var(--text-dark);line-height:1.9;margin-bottom:20px;">
+            "居易"源于《礼记·中庸》中的"君子居易以俟命"，既有深厚的文化底蕴，又巧妙融入了"居住"和"容易/便捷"的现代语义。
+          </p>
+          <p style="font-size:15px;color:var(--text-dark);line-height:1.9;">
+            <strong>"居易"</strong>即"让居住变得更简单、更智慧，并能从容应对变化。"
+          </p>
+          <div style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap;">
+            <div style="padding:12px 20px;background:rgba(0,180,216,0.06);border-radius:10px;border:1px solid rgba(0,180,216,0.15);">
+              <div style="font-size:13px;color:#888;margin-bottom:4px;">中文品牌名</div>
+              <div style="font-size:18px;font-weight:800;color:var(--cyan-main);">居易人工智能</div>
+            </div>
+            <div style="padding:12px 20px;background:rgba(244,162,97,0.06);border-radius:10px;border:1px solid rgba(244,162,97,0.2);">
+              <div style="font-size:13px;color:#888;margin-bottom:4px;">英文品牌名</div>
+              <div style="font-size:18px;font-weight:800;color:var(--orange-main);">Easy Living AI</div>
+            </div>
+          </div>
+        </div>
+        <img src="assets/Futuristic_AI_space_intelligen_2026-04-20T10-35-48.png" alt="品牌文化视觉图" style="width:100%;height:400px;object-fit:cover;border-radius:12px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Policy Alignment -->
+  <section class="section">
+    <div class="container" style="max-width:900px;margin:0 auto;">
+      <div class="text-center" style="margin-bottom:32px;">
+        <span class="section-tag">政策契合</span>
+        <h2 class="section-title">我们响应国家战略，<br>以<span class="cyan">AI空间智能体</span>重塑服务业</h2>
+      </div>
+      <div class="policy-wrap">
+        <p style="font-size:15px;color:var(--text-dark);line-height:1.9;margin-bottom:16px;">
+          李强总理在2026年全国服务业大会上强调，要顺应人口结构变化、消费结构升级、产业结构转型三大趋势，提升服务业的<strong>数智化、标准化、融合化水平</strong>，壮大科技服务。
+        </p>
+        <div class="policy-quote">
+          "顺应人口结构变化、消费结构升级、产业结构转型三大趋势，提升服务业的数智化、标准化、融合化水平，壮大科技服务。"<br>
+          <span style="font-size:13px;color:#888;">——李强总理，2026年全国服务业大会</span>
+        </div>
+        <p style="font-size:15px;color:var(--text-dark);line-height:1.9;margin-top:16px;">
+          Space Cube空间智能体三大盒子通过<strong>感知、交互、互通、互助</strong>，构建从室内到社区、从人到机器的全场景智能服务闭环，是"壮大科技服务"的具体产品化实践。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Robot Forward -->
+  <section class="section section-alt" id="forward">
+    <div class="container">
+      <div class="robot-wrap">
+        <img src="assets/AI_home_robot_concept__humanoi_2026-04-20T10-34-00.png" alt="人形机器人前瞻布局示意图" style="width:100%;height:420px;object-fit:cover;border-radius:12px;">
+        <div>
+          <span class="section-tag">前瞻布局</span>
+          <h2 class="section-title">我们为人形机器人<br><span class="cyan">进入家庭积累数据</span></h2>
+          <p style="font-size:15px;color:#666;line-height:1.9;margin-bottom:28px;">
+            我们是人形机器人进入家庭前的"数据训练场"和"环境预埋基础设施"。三者形成强大的空间智能体，成为具身智能机器人的"操作系统"和"数据底座"。
+          </p>
+          <div class="robot-boxes">
+            <div class="robot-box-item">
+              <div class="robot-box-item-icon">🏠</div>
+              <div>
+                <div class="robot-box-item-title">空间智联Box</div>
+                <div class="robot-box-item-desc">为家用机器人提供"懂家"的数据训练场，积累家庭空间行为数据</div>
+              </div>
+            </div>
+            <div class="robot-box-item">
+              <div class="robot-box-item-icon">🏢</div>
+              <div>
+                <div class="robot-box-item-title">社区智联Box</div>
+                <div class="robot-box-item-desc">为社区服务机器人提供"懂社区"的运行基础设施，构建社区空间认知</div>
+              </div>
+            </div>
+            <div class="robot-box-item">
+              <div class="robot-box-item-icon">🤖</div>
+              <div>
+                <div class="robot-box-item-title">机器人交互Box</div>
+                <div class="robot-box-item-desc">作为人形机器人进入家庭的调度枢纽，积累机器人在真实场景中的行为数据</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background:linear-gradient(135deg,#0a2942,#0a3d5e);">
+    <div class="container text-center">
+      <h2 class="section-title" style="color:white;margin-bottom:12px;">准备好了解更多了吗？</h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.7);margin-bottom:36px;">从产品、场景到体验，我们随时为您准备好了</p>
+      <div class="about-cta-buttons">
+        <a class="btn btn-orange" onclick="showPage('products')">了解 Space Cube →</a>
+        <a class="btn btn-orange" onclick="showPage('community')">体验智慧场景 →</a>
+        <a class="btn btn-orange" onclick="showPage('showroom')">预约展厅体验 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px;">
+            <div class="logo-icon">居</div>
+            <div class="logo-text">
+              <span class="logo-cn">居易人工智能</span>
+              <span class="logo-en">Easy Living AI</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">空间智能操作系统 · 让每一栋楼都成为智慧社区<br>智慧栖居，舒适生活</p>
+        </div>
+        <div>
+          <div class="footer-col-title">导航</div>
+          <a class="footer-col-link" onclick="showPage('home')">首页</a>
+          <a class="footer-col-link" onclick="showPage('products')">产品与服务</a>
+          <a class="footer-col-link" onclick="showPage('community')">智慧社区</a>
+          <a class="footer-col-link" onclick="showPage('operations')">智慧运营</a>
+          <a class="footer-col-link" onclick="showPage('showroom')">展厅与体验</a>
+        </div>
+        <div>
+          <div class="footer-col-title">联系我们</div>
+          <a class="footer-col-link" onclick="showPage('showroom')">预约参观</a>
+          <a class="footer-col-link">商务合作</a>
+          <a class="footer-col-link">媒体联络</a>
+        </div>
+        <div></div>
+      </div>
+      <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利 &nbsp;|&nbsp; Easy Living AI Co., Ltd.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Scroll to top -->
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
 // =========== Page Navigation ===========
 let currentPage = 'home';
 
@@ -1144,6 +2106,5 @@ function submitForm(e) {
 // =========== Navbar active on init ===========
 document.getElementById('nav-home').classList.add('active');
 </script>
-
-
-</body></html>
+</body>
+</html>
