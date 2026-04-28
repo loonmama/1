@@ -1,10 +1,4 @@
-.product-hero::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: url("./assets/images/img01.png"), linear-gradient(rgba(0,180,216,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,216,0.07) 1px, transparent 1px);
-    background-size: cover, 40px 40px, 40px 40px;
-    background-position: center;
-    background-repeat: no-repeat, repeat, repeat;
-  }<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- saved from url=(0022)http://127.0.0.1:8080/ -->
 <html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -385,9 +379,10 @@
   }
   .product-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(0,180,216,0.07) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0,180,216,0.07) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-image: url("./assets/images/img01.png"), linear-gradient(rgba(0,180,216,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,216,0.07) 1px, transparent 1px);
+    background-size: cover, 40px 40px, 40px 40px;
+    background-position: center;
+    background-repeat: no-repeat, repeat, repeat;
   }
   .product-hero .section-title { color: white; }
   .product-hero .section-title .cyan { color: var(--cyan-main); }
