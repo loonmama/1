@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0022)http://127.0.0.1:8080/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>居易人工智能有限公司 | Easy Living AI</title>
 <style>
@@ -188,13 +188,13 @@
     background: linear-gradient(90deg, rgba(2,24,40,0.78) 0%, rgba(2,24,40,0.32) 60%, transparent 100%);
   }
   .banner-bg-1 {
-    background: url('assets/banner-community.png') center/cover no-repeat, linear-gradient(135deg, rgba(10,41,66,0.72) 0%, rgba(10,61,94,0.52) 60%, rgba(8,90,122,0.35) 100%);
+    background: linear-gradient(135deg, #0a2942 0%, #0a3d5e 40%, #085a7a 100%);
   }
   .banner-bg-2 {
-    background: url('assets/Modern_smart_home_living_room__2026-04-20T10-32-46.png') center/cover no-repeat, linear-gradient(135deg, rgba(13,33,55,0.72) 0%, rgba(13,58,86,0.52) 60%, rgba(12,82,114,0.35) 100%);
+    background: linear-gradient(135deg, #0d2137 0%, #0d3a56 40%, #0c5272 100%);
   }
   .banner-bg-3 {
-    background: url('assets/AI_home_robot_concept__humanoi_2026-04-20T10-34-00.png') center/cover no-repeat, linear-gradient(135deg, rgba(15,31,53,0.72) 0%, rgba(16,45,79,0.52) 60%, rgba(12,63,104,0.35) 100%);
+    background: linear-gradient(135deg, #0f1f35 0%, #102d4f 40%, #0c3f68 100%);
   }
   .banner-visual {
     position: absolute; inset: 0;
@@ -322,170 +322,27 @@
   .arch-line-v {
     width: 2px; height: 28px; background: rgba(0,180,216,0.3);
   }
-  /* 原始三盒布局 */
   .arch-boxes {
-    display: flex;
-    justify-content: space-around;
-    gap: 24px;
-    padding-top: 20px;
-    position: relative;
-    z-index: 2;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   }
   .arch-box {
-    flex: 1;
-    max-width: 200px;
-    text-align: center;
-    background: rgba(0,180,216,0.08);
-    border: 1.5px solid rgba(0,180,216,0.3);
-    border-radius: 16px;
-    padding: 20px 16px;
-    backdrop-filter: blur(8px);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(0,180,216,0.3);
+    border-radius: 14px; padding: 24px; text-align: center;
+    transition: var(--transition); cursor: pointer;
   }
   .arch-box:hover {
-    background: rgba(0,180,216,0.15);
-    border-color: var(--cyan-main);
+    background: rgba(0,180,216,0.1); border-color: var(--cyan-main);
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,180,216,0.2);
   }
-  .arch-box-icon { font-size: 40px; margin-bottom: 12px; }
-  .arch-box-name {
-    font-size: 15px; font-weight: 700; color: var(--cyan-main);
-    margin-bottom: 8px;
-  }
-  .arch-box-role { font-size: 12px; color: var(--orange-main); font-weight: 600; margin-bottom: 6px; }
-  .arch-box-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; }
-
-  /* 产品架构图 - 图片版 */
-  .product-arch-img { display: none; }
-  .product-arch-img img {
-    width: 100%; height: auto;
-    border-radius: 16px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
-  }
-  .product-arch-ring, .product-arch-ring-v2, .product-arch-ring-v3, .product-arch-ring-final { display: none; }
-  .product-arch-ring-final {
-    position: relative;
-    width: 100%; max-width: 660px; margin: 0 auto;
-    padding: 20px 0 40px;
-  }
-  /* 顶部云平台 */
-  .arch-cloud-final {
-    width: 200px; margin: 0 auto;
-    background: linear-gradient(135deg, #00B4D8 0%, #0077B6 100%);
-    border-radius: 100px;
-    padding: 18px 28px;
-    text-align: center;
-    box-shadow: 0 0 50px rgba(0,180,216,0.6), 0 0 100px rgba(0,180,216,0.25);
-    border: 2px solid rgba(255,255,255,0.3);
-    position: relative; z-index: 5;
-    animation: cloudPulse 3s ease-in-out infinite;
-  }
-  @keyframes cloudPulse {
-    0%, 100% { box-shadow: 0 0 50px rgba(0,180,216,0.6), 0 0 100px rgba(0,180,216,0.25); }
-    50% { box-shadow: 0 0 70px rgba(0,180,216,0.8), 0 0 120px rgba(0,180,216,0.35); }
-  }
-  .cloud-icon-final { font-size: 34px; margin-bottom: 6px; }
-  .cloud-title-final { color: white; font-weight: 800; font-size: 16px; letter-spacing: 1px; }
-  /* SVG连接线 */
-  .arch-connections-final {
-    position: absolute; top: 0; left: 0;
-    width: 100%; height: 380px;
-    pointer-events: none; z-index: 1;
-  }
-  .conn-final {
-    animation: connFlow 2.5s ease-in-out infinite;
-  }
-  .conn-final:nth-child(1) { animation-delay: 0s; }
-  .conn-final:nth-child(2) { animation-delay: 0.4s; }
-  .conn-final:nth-child(3) { animation-delay: 0.8s; }
-  @keyframes connFlow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-  }
-  .ring-arc-final {
-    animation: arcFlow 3s ease-in-out infinite;
-  }
-  .ring-arc-inner {
-    animation: arcFlow 3s ease-in-out infinite 0.5s;
-  }
-  @keyframes arcFlow {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.9; }
-  }
-  /* 三个盒子：弧形排列带底座 */
-  .arch-boxes-final {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 30px;
-    position: relative; z-index: 3;
-    padding-top: 180px;
-  }
-  .final-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  /* 盒子底座 - 圆形平台 */
-  .final-box-pedestal {
-    width: 100px; height: 30px;
-    background: linear-gradient(180deg, rgba(0,180,216,0.4) 0%, rgba(0,180,216,0.1) 100%);
-    border-radius: 50%;
-    border: 1px solid rgba(0,180,216,0.5);
-    box-shadow: 0 5px 20px rgba(0,180,216,0.3);
-    margin-top: -15px;
-    animation: pedestalGlow 3s ease-in-out infinite;
-  }
-  @keyframes pedestalGlow {
-    0%, 100% { box-shadow: 0 5px 20px rgba(0,180,216,0.3); }
-    50% { box-shadow: 0 5px 30px rgba(0,180,216,0.5); }
-  }
-  /* 盒子本体 */
-  .final-box-content {
-    background: linear-gradient(180deg, rgba(0,180,216,0.15) 0%, rgba(255,255,255,0.05) 100%);
-    border: 2px solid rgba(0,180,216,0.5);
-    border-radius: 20px;
-    padding: 24px 18px;
-    text-align: center;
-    width: 160px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    cursor: pointer;
-  }
-  .final-box-content:hover {
-    transform: translateY(-10px) scale(1.05);
-    border-color: #00B4D8;
-    box-shadow: 0 15px 50px rgba(0,180,216,0.4), 0 0 30px rgba(0,180,216,0.2);
-  }
-  .final-icon {
-    width: 56px; height: 56px; border-radius: 16px; margin: 0 auto 14px;
-    background: linear-gradient(135deg, rgba(0,180,216,0.4), rgba(0,119,182,0.3));
-    border: 1px solid rgba(0,180,216,0.6);
+  .arch-box-icon {
+    width: 52px; height: 52px; border-radius: 12px; margin: 0 auto 14px;
+    background: linear-gradient(135deg, rgba(0,180,216,0.3), rgba(0,119,182,0.3));
+    border: 1px solid rgba(0,180,216,0.4);
     display: flex; align-items: center; justify-content: center;
-    font-size: 26px;
-    box-shadow: 0 4px 15px rgba(0,180,216,0.3);
+    font-size: 24px;
   }
-  .final-name { color: #00B4D8; font-weight: 700; font-size: 14px; margin-bottom: 6px; text-shadow: 0 0 10px rgba(0,180,216,0.5); }
-  .final-role { color: #F4A261; font-weight: 600; font-size: 12px; margin-bottom: 8px; }
-  .final-desc { color: rgba(255,255,255,0.65); font-size: 11px; line-height: 1.6; }
-  /* 响应式 */
-  @media (max-width: 600px) {
-    .arch-boxes-final { gap: 12px; padding-top: 150px; }
-    .final-box-content { width: 110px; padding: 16px 10px; }
-    .final-box-pedestal { width: 80px; height: 24px; }
-    .final-name { font-size: 11px; }
-    .final-role { font-size: 10px; }
-    .final-desc { font-size: 9px; }
-    .final-icon { width: 44px; height: 44px; font-size: 20px; }
-    .arch-cloud-final { width: 160px; padding: 14px 20px; }
-    .cloud-title-final { font-size: 13px; }
-    .cloud-icon-final { font-size: 28px; }
-  }
-  /* 产品架构图 - 图片版（已隐藏，恢复使用CSS原始版） */
-  .product-arch-ring, .product-arch-ring-v2, .product-arch-ring-v3, .product-arch-ring-final { display: none; }
+  .arch-box-name { color: var(--cyan-main); font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .arch-box-desc { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; }
 
   /* =========== HOME: Forward Looking =========== */
   .fwd-wrap {
@@ -873,7 +730,7 @@
 <!-- =========== NAVBAR =========== -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a class="nav-logo" href="#" onclick="showPage('home')">
+    <a class="nav-logo" href="http://127.0.0.1:8080/#" onclick="showPage(&#39;home&#39;)">
       <div class="logo-icon">居</div>
       <div class="logo-text">
         <span class="logo-cn">居易人工智能</span>
@@ -881,12 +738,12 @@
       </div>
     </a>
     <div class="nav-links">
-      <a onclick="showPage('home')" id="nav-home">首页</a>
-      <a onclick="showPage('products')" id="nav-products">产品与服务</a>
-      <a onclick="showPage('community')" id="nav-community">智慧社区</a>
-      <a onclick="showPage('operations')" id="nav-operations">智慧运营</a>
-      <a onclick="showPage('showroom')" id="nav-showroom">展厅与体验</a>
-      <a onclick="showPage('about')" id="nav-about">关于我们</a>
+      <a onclick="showPage(&#39;home&#39;)" id="nav-home" class="active">首页</a>
+      <a onclick="showPage(&#39;products&#39;)" id="nav-products">产品与服务</a>
+      <a onclick="showPage(&#39;community&#39;)" id="nav-community">智慧社区</a>
+      <a onclick="showPage(&#39;operations&#39;)" id="nav-operations">智慧运营</a>
+      <a onclick="showPage(&#39;showroom&#39;)" id="nav-showroom">展厅与体验</a>
+      <a onclick="showPage(&#39;about&#39;)" id="nav-about">关于我们</a>
     </div>
     <div class="hamburger" onclick="toggleMobile()" id="hamburger">
       <span></span><span></span><span></span>
@@ -896,12 +753,12 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a onclick="showPage('home');closeMobile()">首页</a>
-  <a onclick="showPage('products');closeMobile()">产品与服务</a>
-  <a onclick="showPage('community');closeMobile()">智慧社区</a>
-  <a onclick="showPage('operations');closeMobile()">智慧运营</a>
-  <a onclick="showPage('showroom');closeMobile()">展厅与体验</a>
-  <a onclick="showPage('about');closeMobile()">关于我们</a>
+  <a onclick="showPage(&#39;home&#39;);closeMobile()">首页</a>
+  <a onclick="showPage(&#39;products&#39;);closeMobile()">产品与服务</a>
+  <a onclick="showPage(&#39;community&#39;);closeMobile()">智慧社区</a>
+  <a onclick="showPage(&#39;operations&#39;);closeMobile()">智慧运营</a>
+  <a onclick="showPage(&#39;showroom&#39;);closeMobile()">展厅与体验</a>
+  <a onclick="showPage(&#39;about&#39;);closeMobile()">关于我们</a>
 </div>
 
 <!-- ===================================================
@@ -912,7 +769,7 @@
   <!-- Banner Slider -->
   <div class="banner-slider" id="bannerSlider">
     <!-- Slide 1 -->
-    <div class="banner-slide active" id="slide-0">
+    <div class="banner-slide" id="slide-0">
       <div class="banner-bg banner-bg-1">
         <div class="banner-deco">
           <div class="banner-deco-grid"></div>
@@ -924,7 +781,7 @@
         <div class="banner-label">Space Cube 空间智能体</div>
         <h1 class="banner-title">让每一栋楼，<br>都成为智慧社区</h1>
         <p class="banner-sub">Space Cube空间智能体，用智慧创造价值</p>
-        <a class="btn btn-cyan" onclick="showPage('operations')">了解智慧运营 →</a>
+        <a class="btn btn-orange" onclick="showPage(&#39;operations&#39;)">了解智慧运营 →</a>
       </div>
     </div>
     <!-- Slide 2 -->
@@ -940,11 +797,11 @@
         <div class="banner-label">智慧社区解决方案</div>
         <h1 class="banner-title">让每一个空间，<br>都学会思考</h1>
         <p class="banner-sub">Space Cube空间智能体，让科技服务于人</p>
-        <a class="btn btn-cyan" onclick="showPage('community')">体验智慧生活 →</a>
+        <a class="btn btn-orange" onclick="showPage(&#39;community&#39;)">体验智慧生活 →</a>
       </div>
     </div>
     <!-- Slide 3 -->
-    <div class="banner-slide" id="slide-2">
+    <div class="banner-slide active" id="slide-2">
       <div class="banner-bg banner-bg-3">
         <div class="banner-deco">
           <div class="banner-deco-grid"></div>
@@ -956,14 +813,14 @@
         <div class="banner-label">具身智能 · 前瞻布局</div>
         <h1 class="banner-title">人形机器人进入家庭前的<br>"数据训练场"</h1>
         <p class="banner-sub">Space Cube空间智能体，为人形机器人进入家庭积累每一刻的智慧和记忆</p>
-        <a class="btn btn-cyan" onclick="showPage('about');setTimeout(()=>scrollToSection('forward'),300)">探索技术远景 →</a>
+        <a class="btn btn-orange" onclick="showPage(&#39;about&#39;);setTimeout(()=&gt;scrollToSection(&#39;forward&#39;),300)">探索技术远景 →</a>
       </div>
     </div>
     <!-- Dots -->
     <div class="banner-dots">
-      <div class="banner-dot active" onclick="goToSlide(0)"></div>
+      <div class="banner-dot" onclick="goToSlide(0)"></div>
       <div class="banner-dot" onclick="goToSlide(1)"></div>
-      <div class="banner-dot" onclick="goToSlide(2)"></div>
+      <div class="banner-dot active" onclick="goToSlide(2)"></div>
     </div>
   </div>
 
@@ -987,9 +844,12 @@
           <p class="section-desc">
             我们是一家"空间智能操作系统"公司——通过自研的AI智能设备Space Cube（空间智能体Box），为建筑提供从室内到社区的多场景AI智能应用方案，致力于打造科技服务于人、舒适宜居的AI智慧社区。
           </p>
-          <a class="btn btn-orange" onclick="showPage('products')">了解我们的产品 →</a>
+          <a class="btn btn-orange" onclick="showPage(&#39;products&#39;)">了解我们的产品 →</a>
         </div>
-        <img src="assets/Futuristic_AI_space_intelligen_2026-04-20T10-35-48.png" alt="智慧社区效果图" class="positioning-img" style="width:100%;height:360px;object-fit:cover;border-radius:12px;">
+        <div class="img-placeholder positioning-img">
+          <div class="ph-icon">🏙️</div>
+          <div class="ph-text">现代智慧社区效果图</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1036,7 +896,7 @@
         </div>
       </div>
       <div class="text-center">
-        <a class="btn btn-orange" onclick="showPage('products')">探索产品详情 →</a>
+        <a class="btn btn-orange" onclick="showPage(&#39;products&#39;)">探索产品详情 →</a>
       </div>
     </div>
   </section>
@@ -1051,9 +911,12 @@
           <div class="fwd-highlight">
             我们是人形机器人进入家庭前的"数据训练场"和"环境预埋基础设施"。三大盒子形成强大的空间智能体，成为具身智能机器人的"操作系统"和"数据底座"。
           </div>
-          <a class="btn btn-orange" onclick="showPage('about');setTimeout(()=>scrollToSection('forward'),300)">了解我们的技术远景 →</a>
+          <a class="btn btn-orange" onclick="showPage(&#39;about&#39;);setTimeout(()=&gt;scrollToSection(&#39;forward&#39;),300)">了解我们的技术远景 →</a>
         </div>
-        <img src="assets/AI_home_robot_concept__humanoi_2026-04-20T10-34-00.png" alt="人形机器人概念图" style="width:100%;height:380px;object-fit:cover;border-radius:12px;">
+        <div class="img-placeholder" style="height:380px;">
+          <div class="ph-icon">🦾</div>
+          <div class="ph-text">人形机器人概念图</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1062,12 +925,15 @@
   <section class="section section-alt">
     <div class="container">
       <div class="exp-wrap">
-        <img src="assets/Space_Cube_AI_smart_home_devic_2026-04-20T10-29-02.png" alt="展厅实景效果图" class="exp-img" style="width:100%;height:340px;object-fit:cover;border-radius:12px;">
+        <div class="img-placeholder exp-img">
+          <div class="ph-icon">🏡</div>
+          <div class="ph-text">展厅实景效果图</div>
+        </div>
         <div>
           <span class="section-tag">亲身体验</span>
           <h2 class="section-title">亲身体验<br><span class="cyan">会思考的空间</span></h2>
           <p class="section-desc">50-100㎡实景智慧房屋，现场体验智慧社区场景。三大盒子实景联动，四大生活场景沉浸体验。</p>
-          <a class="btn btn-orange" onclick="showPage('showroom')">预约参观体验 →</a>
+          <a class="btn btn-orange" onclick="showPage(&#39;showroom&#39;)">预约参观体验 →</a>
         </div>
       </div>
     </div>
@@ -1088,22 +954,22 @@
         </div>
         <div>
           <div class="footer-col-title">产品</div>
-          <a class="footer-col-link" onclick="showPage('products')">Space Cube 产品详情</a>
-          <a class="footer-col-link" onclick="showPage('products')">空间智联Box</a>
-          <a class="footer-col-link" onclick="showPage('products')">社区智联Box</a>
-          <a class="footer-col-link" onclick="showPage('products')">机器人交互Box</a>
+          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">Space Cube 产品详情</a>
+          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">空间智联Box</a>
+          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">社区智联Box</a>
+          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">机器人交互Box</a>
         </div>
         <div>
           <div class="footer-col-title">解决方案</div>
-          <a class="footer-col-link" onclick="showPage('community')">智慧社区</a>
-          <a class="footer-col-link" onclick="showPage('operations')">智慧运营</a>
-          <a class="footer-col-link" onclick="showPage('showroom')">展厅体验</a>
+          <a class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</a>
+          <a class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</a>
+          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">展厅体验</a>
         </div>
         <div>
           <div class="footer-col-title">关于</div>
-          <a class="footer-col-link" onclick="showPage('about')">公司介绍</a>
-          <a class="footer-col-link" onclick="showPage('about')">品牌故事</a>
-          <a class="footer-col-link" onclick="showPage('showroom')">预约参观</a>
+          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">公司介绍</a>
+          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">品牌故事</a>
+          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">预约参观</a>
         </div>
       </div>
       <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利 &nbsp;|&nbsp; Easy Living AI Co., Ltd.</div>
@@ -1134,13 +1000,12 @@
         <h2 class="section-title">一个云端大脑 + <span class="cyan">三大智联盒子</span></h2>
         <p class="section-desc">鼠标悬停每个盒子，了解详细能力介绍</p>
       </div>
-      <!-- 产品架构 - 原始CSS版 -->
-      <div class="product-arch" style="margin-top:40px;">
-        <div class="arch-title">AIoT云平台 · 空间智能大脑<br><span style="font-size:14px;opacity:0.7;font-weight:400;">统一数据中台 · 智能决策引擎 · 远程管理</span></div>
+      <div class="product-arch" style="margin-bottom:0;">
+        <div class="arch-title">☁️ AIoT云平台 · <span>统一数据中台 · 智能决策引擎 · 远程管理</span></div>
         <div class="arch-cloud">
           <div class="arch-cloud-box">
-            ☁️ AIoT云平台
-            <div class="arch-box-sub">数据汇聚 · 智能决策 · 远程管理</div>
+            Space Cube 云端大脑
+            <div class="arch-box-sub">全量数据汇聚 · AI决策中枢 · 边云协同 · 远程运维</div>
           </div>
         </div>
         <div class="arch-connector">
@@ -1151,23 +1016,20 @@
           </div>
         </div>
         <div class="arch-boxes">
-          <div class="arch-box">
+          <div class="arch-box" title="空间智联Box：家庭/室内空间智能化管家">
             <div class="arch-box-icon">🏠</div>
             <div class="arch-box-name">空间智联Box</div>
-            <div class="arch-box-role">懂你的生活管家</div>
-            <div class="arch-box-desc">家庭/室内空间智能化</div>
+            <div class="arch-box-desc">懂你的生活管家<br>语音/触控 · 环境感知 · 习惯学习</div>
           </div>
-          <div class="arch-box">
+          <div class="arch-box" title="社区智联Box：社区/楼宇公共区域管理">
             <div class="arch-box-icon">🏢</div>
             <div class="arch-box-name">社区智联Box</div>
-            <div class="arch-box-role">守秩序的系统管家</div>
-            <div class="arch-box-desc">社区/楼宇公共区域管理</div>
+            <div class="arch-box-desc">守秩序的系统管家<br>监控门禁 · 规则联动 · 安全运维</div>
           </div>
-          <div class="arch-box">
+          <div class="arch-box" title="机器人交互Box：跨空间机器人集群调度">
             <div class="arch-box-icon">🤖</div>
             <div class="arch-box-name">机器人交互Box</div>
-            <div class="arch-box-role">会干活的调度总管</div>
-            <div class="arch-box-desc">跨空间机器人集群调度</div>
+            <div class="arch-box-desc">会干活的调度总管<br>机器人调度 · 任务协同 · 服务集成</div>
           </div>
         </div>
       </div>
@@ -1305,8 +1167,8 @@
       <h2 class="section-title" style="margin-bottom:12px;">Space Cube 能为您创造什么？</h2>
       <p class="section-desc">无论您关注居住体验还是楼宇运营效益，Space Cube都有答案</p>
       <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
-        <a class="btn btn-orange" onclick="showPage('community')">看看它能创造怎样的智慧生活 →</a>
-        <a class="btn btn-outline-cyan" onclick="showPage('operations')">看看它能如何优化楼宇运营 →</a>
+        <a class="btn btn-orange" onclick="showPage(&#39;community&#39;)">看看它能创造怎样的智慧生活 →</a>
+        <a class="btn btn-outline-cyan" onclick="showPage(&#39;operations&#39;)">看看它能如何优化楼宇运营 →</a>
       </div>
     </div>
   </section>
@@ -1326,11 +1188,11 @@
         </div>
         <div>
           <div class="footer-col-title">导航</div>
-          <a class="footer-col-link" onclick="showPage('home')">首页</a>
-          <a class="footer-col-link" onclick="showPage('community')">智慧社区</a>
-          <a class="footer-col-link" onclick="showPage('operations')">智慧运营</a>
-          <a class="footer-col-link" onclick="showPage('showroom')">展厅与体验</a>
-          <a class="footer-col-link" onclick="showPage('about')">关于我们</a>
+          <a class="footer-col-link" onclick="showPage(&#39;home&#39;)">首页</a>
+          <a class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</a>
+          <a class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</a>
+          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">展厅与体验</a>
+          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">关于我们</a>
         </div>
         <div></div><div></div>
       </div>
@@ -1368,7 +1230,10 @@
             <div class="scene-card-title">离家模式</div>
           </div>
           <div class="scene-card-body">
-            <img src="assets/Futuristic_smart_home_product__2026-04-20T10-32-01.png" alt="离家场景示意图" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;">
+            <div class="img-placeholder" style="height:180px;margin-bottom:20px;">
+              <div class="ph-icon">🚪</div>
+              <div class="ph-text">离家场景示意图</div>
+            </div>
             <p class="scene-desc">系统一键接管，自动关窗、断电、关空调，安防雷达上线，隐患瞬间清零。出门无忧，一切交给Space Cube。</p>
             <div class="scene-meta">
               <span class="scene-meta-item product">社区智联Box + 空间智联Box联动</span>
@@ -1383,7 +1248,10 @@
             <div class="scene-card-title">归家模式</div>
           </div>
           <div class="scene-card-body">
-            <img src="assets/Modern_smart_home_living_room__2026-04-20T10-32-46.png" alt="归家场景示意图" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;">
+            <div class="img-placeholder" style="height:180px;margin-bottom:20px;">
+              <div class="ph-icon">🌅</div>
+              <div class="ph-text">归家场景示意图</div>
+            </div>
             <p class="scene-desc">基于LBS位置预判，提前调节适宜室温与个性化灯光，进门即享最佳环境。家，在你到来之前就准备好了。</p>
             <div class="scene-meta">
               <span class="scene-meta-item product">空间智联Box · 习惯学习</span>
@@ -1398,7 +1266,10 @@
             <div class="scene-card-title">社区互动</div>
           </div>
           <div class="scene-card-body">
-            <img src="assets/Futuristic_AI_space_intelligen_2026-04-20T10-35-48.png" alt="社区互动场景示意图" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;">
+            <div class="img-placeholder" style="height:180px;margin-bottom:20px;">
+              <div class="ph-icon">🤝</div>
+              <div class="ph-text">社区互动场景示意图</div>
+            </div>
             <p class="scene-desc">在线智能拼单，访客临时门禁码自动生成，打破钢筋水泥的隔阂，让邻里关系更有温度。</p>
             <div class="scene-meta">
               <span class="scene-meta-item product">社区智联Box + 区块链信任</span>
@@ -1413,7 +1284,10 @@
             <div class="scene-card-title">紧急服务</div>
           </div>
           <div class="scene-card-body">
-            <img src="assets/AI_smart_robot_in_modern_home__2026-04-20T10-40-28.png" alt="紧急服务场景示意图" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;">
+            <div class="img-placeholder" style="height:180px;margin-bottom:20px;">
+              <div class="ph-icon">🚨</div>
+              <div class="ph-text">紧急服务场景示意图</div>
+            </div>
             <p class="scene-desc">专为独居住户设计，语音一键求助直达云端，联动无人车极速配送应急物资。独居也安心，有我在。</p>
             <div class="scene-meta">
               <span class="scene-meta-item product">机器人交互Box + 社区智联Box</span>
@@ -1424,7 +1298,7 @@
       </div>
 
       <div class="text-center" style="margin-top:48px;">
-        <a class="btn btn-orange" onclick="showPage('showroom')">让您的楼宇拥有这些场景 →</a>
+        <a class="btn btn-orange" onclick="showPage(&#39;showroom&#39;)">让您的楼宇拥有这些场景 →</a>
       </div>
     </div>
   </section>
@@ -1444,11 +1318,11 @@
         </div>
         <div>
           <div class="footer-col-title">导航</div>
-          <a class="footer-col-link" onclick="showPage('home')">首页</a>
-          <a class="footer-col-link" onclick="showPage('products')">产品与服务</a>
-          <a class="footer-col-link" onclick="showPage('operations')">智慧运营</a>
-          <a class="footer-col-link" onclick="showPage('showroom')">展厅与体验</a>
-          <a class="footer-col-link" onclick="showPage('about')">关于我们</a>
+          <a class="footer-col-link" onclick="showPage(&#39;home&#39;)">首页</a>
+          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">产品与服务</a>
+          <a class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</a>
+          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">展厅与体验</a>
+          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">关于我们</a>
         </div>
         <div></div><div></div>
       </div>
@@ -1592,8 +1466,8 @@
           部署Space Cube的楼宇，将积累宝贵的空间行为数据。这些数据是训练人形机器人的关键资源。未来，您不仅是楼宇业主，更是具身智能产业的数据伙伴。
         </p>
         <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
-          <a class="btn btn-orange" onclick="showPage('about');setTimeout(()=>scrollToSection('forward'),300)">了解我们的技术远景 →</a>
-          <a class="btn btn-cyan" onclick="showPage('showroom')">立即预约方案演示 →</a>
+          <a class="btn btn-orange" onclick="showPage(&#39;about&#39;);setTimeout(()=&gt;scrollToSection(&#39;forward&#39;),300)">了解我们的技术远景 →</a>
+          <a class="btn btn-cyan" onclick="showPage(&#39;showroom&#39;)">立即预约方案演示 →</a>
         </div>
       </div>
     </div>
@@ -1614,11 +1488,11 @@
         </div>
         <div>
           <div class="footer-col-title">导航</div>
-          <a class="footer-col-link" onclick="showPage('home')">首页</a>
-          <a class="footer-col-link" onclick="showPage('products')">产品与服务</a>
-          <a class="footer-col-link" onclick="showPage('community')">智慧社区</a>
-          <a class="footer-col-link" onclick="showPage('showroom')">展厅与体验</a>
-          <a class="footer-col-link" onclick="showPage('about')">关于我们</a>
+          <a class="footer-col-link" onclick="showPage(&#39;home&#39;)">首页</a>
+          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">产品与服务</a>
+          <a class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</a>
+          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">展厅与体验</a>
+          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">关于我们</a>
         </div>
         <div></div><div></div>
       </div>
@@ -1670,10 +1544,19 @@
         </div>
         <div>
           <div class="showroom-gallery">
-            <img src="assets/Space_Cube_AI_smart_home_devic_2026-04-20T10-29-02.png" alt="展厅主场景实景图" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+            <div class="img-placeholder main-img">
+              <div class="ph-icon">🏡</div>
+              <div class="ph-text">展厅主场景实景图</div>
+            </div>
             <div class="showroom-gallery-side">
-              <img src="assets/Modern_smart_home_living_room__2026-04-20T10-32-46.png" alt="智能灯光场景" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
-              <img src="assets/AI_smart_robot_in_modern_home__2026-04-20T10-40-28.png" alt="机器人交互演示" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+              <div class="img-placeholder side-img">
+                <div class="ph-icon">💡</div>
+                <div class="ph-text">智能灯光场景</div>
+              </div>
+              <div class="img-placeholder side-img">
+                <div class="ph-icon">🤖</div>
+                <div class="ph-text">机器人交互演示</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1691,19 +1574,19 @@
           <div class="form-grid">
             <div class="form-group">
               <label class="form-label">姓名<span class="required">*</span></label>
-              <input type="text" class="form-input" placeholder="请输入您的姓名" required>
+              <input type="text" class="form-input" placeholder="请输入您的姓名" required="">
             </div>
             <div class="form-group">
               <label class="form-label">手机号<span class="required">*</span></label>
-              <input type="tel" class="form-input" placeholder="请输入手机号" required>
+              <input type="tel" class="form-input" placeholder="请输入手机号" required="">
             </div>
             <div class="form-group">
               <label class="form-label">公司 / 楼宇物业公司<span class="required">*</span></label>
-              <input type="text" class="form-input" placeholder="请输入公司名称" required>
+              <input type="text" class="form-input" placeholder="请输入公司名称" required="">
             </div>
             <div class="form-group">
               <label class="form-label">职位<span class="required">*</span></label>
-              <input type="text" class="form-input" placeholder="请输入您的职位" required>
+              <input type="text" class="form-input" placeholder="请输入您的职位" required="">
             </div>
             <div class="form-group">
               <label class="form-label">楼宇规模</label>
@@ -1750,11 +1633,11 @@
         </div>
         <div>
           <div class="footer-col-title">导航</div>
-          <a class="footer-col-link" onclick="showPage('home')">首页</a>
-          <a class="footer-col-link" onclick="showPage('products')">产品与服务</a>
-          <a class="footer-col-link" onclick="showPage('community')">智慧社区</a>
-          <a class="footer-col-link" onclick="showPage('operations')">智慧运营</a>
-          <a class="footer-col-link" onclick="showPage('about')">关于我们</a>
+          <a class="footer-col-link" onclick="showPage(&#39;home&#39;)">首页</a>
+          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">产品与服务</a>
+          <a class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</a>
+          <a class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</a>
+          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">关于我们</a>
         </div>
         <div></div><div></div>
       </div>
@@ -1806,7 +1689,10 @@
             </div>
           </div>
         </div>
-        <img src="assets/Futuristic_AI_space_intelligen_2026-04-20T10-35-48.png" alt="品牌文化视觉图" style="width:100%;height:400px;object-fit:cover;border-radius:12px;">
+        <div class="img-placeholder" style="height:400px;">
+          <div class="ph-icon">📖</div>
+          <div class="ph-text">品牌文化视觉图</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1837,7 +1723,10 @@
   <section class="section section-alt" id="forward">
     <div class="container">
       <div class="robot-wrap">
-        <img src="assets/AI_home_robot_concept__humanoi_2026-04-20T10-34-00.png" alt="人形机器人前瞻布局示意图" style="width:100%;height:420px;object-fit:cover;border-radius:12px;">
+        <div class="img-placeholder" style="height:420px;">
+          <div class="ph-icon">🦾</div>
+          <div class="ph-text">人形机器人前瞻布局示意图</div>
+        </div>
         <div>
           <span class="section-tag">前瞻布局</span>
           <h2 class="section-title">我们为人形机器人<br><span class="cyan">进入家庭积累数据</span></h2>
@@ -1878,9 +1767,9 @@
       <h2 class="section-title" style="color:white;margin-bottom:12px;">准备好了解更多了吗？</h2>
       <p style="font-size:16px;color:rgba(255,255,255,0.7);margin-bottom:36px;">从产品、场景到体验，我们随时为您准备好了</p>
       <div class="about-cta-buttons">
-        <a class="btn btn-orange" onclick="showPage('products')">了解 Space Cube →</a>
-        <a class="btn btn-orange" onclick="showPage('community')">体验智慧场景 →</a>
-        <a class="btn btn-orange" onclick="showPage('showroom')">预约展厅体验 →</a>
+        <a class="btn btn-orange" onclick="showPage(&#39;products&#39;)">了解 Space Cube →</a>
+        <a class="btn btn-orange" onclick="showPage(&#39;community&#39;)">体验智慧场景 →</a>
+        <a class="btn btn-orange" onclick="showPage(&#39;showroom&#39;)">预约展厅体验 →</a>
       </div>
     </div>
   </section>
@@ -1900,15 +1789,15 @@
         </div>
         <div>
           <div class="footer-col-title">导航</div>
-          <a class="footer-col-link" onclick="showPage('home')">首页</a>
-          <a class="footer-col-link" onclick="showPage('products')">产品与服务</a>
-          <a class="footer-col-link" onclick="showPage('community')">智慧社区</a>
-          <a class="footer-col-link" onclick="showPage('operations')">智慧运营</a>
-          <a class="footer-col-link" onclick="showPage('showroom')">展厅与体验</a>
+          <a class="footer-col-link" onclick="showPage(&#39;home&#39;)">首页</a>
+          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">产品与服务</a>
+          <a class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</a>
+          <a class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</a>
+          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">展厅与体验</a>
         </div>
         <div>
           <div class="footer-col-title">联系我们</div>
-          <a class="footer-col-link" onclick="showPage('showroom')">预约参观</a>
+          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">预约参观</a>
           <a class="footer-col-link">商务合作</a>
           <a class="footer-col-link">媒体联络</a>
         </div>
@@ -1920,7 +1809,7 @@
 </div>
 
 <!-- Scroll to top -->
-<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:&#39;smooth&#39;})">↑</div>
 
 <script>
 // =========== Page Navigation ===========
@@ -2004,5 +1893,6 @@ function submitForm(e) {
 // =========== Navbar active on init ===========
 document.getElementById('nav-home').classList.add('active');
 </script>
-</body>
-</html>
+
+
+</body></html>
