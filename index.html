@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+.product-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("./assets/images/img01.png"), linear-gradient(rgba(0,180,216,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,216,0.07) 1px, transparent 1px);
+    background-size: cover, 40px 40px, 40px 40px;
+    background-position: center;
+    background-repeat: no-repeat, repeat, repeat;
+  }<!DOCTYPE html>
 <!-- saved from url=(0022)http://127.0.0.1:8080/ -->
 <html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -188,13 +194,22 @@
     background: linear-gradient(90deg, rgba(2,24,40,0.78) 0%, rgba(2,24,40,0.32) 60%, transparent 100%);
   }
   .banner-bg-1 {
-    background: linear-gradient(135deg, #0a2942 0%, #0a3d5e 40%, #085a7a 100%);
+    background-image: url("./assets/images/img02.png"), linear-gradient(135deg, rgba(10,41,66,0.75) 0%, rgba(10,61,94,0.75) 40%, rgba(8,90,122,0.75) 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .banner-bg-2 {
-    background: linear-gradient(135deg, #0d2137 0%, #0d3a56 40%, #0c5272 100%);
+    background-image: url("./assets/images/img03.png"), linear-gradient(135deg, rgba(13,33,55,0.75) 0%, rgba(13,58,86,0.75) 40%, rgba(12,82,114,0.75) 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .banner-bg-3 {
-    background: linear-gradient(135deg, #0f1f35 0%, #102d4f 40%, #0c3f68 100%);
+    background-image: url("./assets/images/img04.png"), linear-gradient(135deg, rgba(15,31,53,0.75) 0%, rgba(16,45,79,0.75) 40%, rgba(12,63,104,0.75) 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .banner-visual {
     position: absolute; inset: 0;
@@ -431,8 +446,10 @@
   }
   .community-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: radial-gradient(circle at 20% 50%, rgba(244,162,97,0.08) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 50%, rgba(0,180,216,0.08) 0%, transparent 50%);
+    background-image: url("./assets/images/img05.png"), radial-gradient(circle at 20% 50%, rgba(244,162,97,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(0,180,216,0.15) 0%, transparent 50%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .community-hero .section-title { color: white; }
   .community-hero .section-desc { color: rgba(255,255,255,0.75); margin: 0 auto; }
@@ -588,8 +605,10 @@
   }
   .about-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: radial-gradient(circle at 20% 30%, rgba(0,180,216,0.12) 0%, transparent 40%),
-                      radial-gradient(circle at 80% 70%, rgba(244,162,97,0.08) 0%, transparent 40%);
+    background-image: url("./assets/images/img06.png"), radial-gradient(circle at 20% 30%, rgba(0,180,216,0.12) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(244,162,97,0.08) 0%, transparent 40%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .about-hero .section-title { color: white; font-size: clamp(26px, 4vw, 46px); margin-bottom: 20px; }
   .about-hero .slogan {
@@ -846,10 +865,8 @@
           </p>
           <a class="btn btn-orange" onclick="showPage(&#39;products&#39;)">了解我们的产品 →</a>
         </div>
-        <div class="img-placeholder positioning-img">
-          <div class="ph-icon">🏙️</div>
-          <div class="ph-text">现代智慧社区效果图</div>
-        </div>
+        <img src="./assets/images/content_img01.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:360px;" alt="" />
+        
       </div>
     </div>
   </section>
@@ -913,10 +930,8 @@
           </div>
           <a class="btn btn-orange" onclick="showPage(&#39;about&#39;);setTimeout(()=&gt;scrollToSection(&#39;forward&#39;),300)">了解我们的技术远景 →</a>
         </div>
-        <div class="img-placeholder" style="height:380px;">
-          <div class="ph-icon">🦾</div>
-          <div class="ph-text">人形机器人概念图</div>
-        </div>
+        <img src="./assets/images/content_img02.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:380px;" alt="" />
+        
       </div>
     </div>
   </section>
@@ -925,10 +940,8 @@
   <section class="section section-alt">
     <div class="container">
       <div class="exp-wrap">
-        <div class="img-placeholder exp-img">
-          <div class="ph-icon">🏡</div>
-          <div class="ph-text">展厅实景效果图</div>
-        </div>
+        <img src="./assets/images/content_img03.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:340px; width:100%;" alt="" />
+        
         <div>
           <span class="section-tag">亲身体验</span>
           <h2 class="section-title">亲身体验<br><span class="cyan">会思考的空间</span></h2>
@@ -1230,10 +1243,8 @@
             <div class="scene-card-title">离家模式</div>
           </div>
           <div class="scene-card-body">
-            <div class="img-placeholder" style="height:180px;margin-bottom:20px;">
-              <div class="ph-icon">🚪</div>
-              <div class="ph-text">离家场景示意图</div>
-            </div>
+            <img src="./assets/images/content_img04.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:180px; margin-bottom:20px;" alt="" />
+            
             <p class="scene-desc">系统一键接管，自动关窗、断电、关空调，安防雷达上线，隐患瞬间清零。出门无忧，一切交给Space Cube。</p>
             <div class="scene-meta">
               <span class="scene-meta-item product">社区智联Box + 空间智联Box联动</span>
@@ -1248,10 +1259,8 @@
             <div class="scene-card-title">归家模式</div>
           </div>
           <div class="scene-card-body">
-            <div class="img-placeholder" style="height:180px;margin-bottom:20px;">
-              <div class="ph-icon">🌅</div>
-              <div class="ph-text">归家场景示意图</div>
-            </div>
+            <img src="./assets/images/content_img05.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:180px; margin-bottom:20px;" alt="" />
+            
             <p class="scene-desc">基于LBS位置预判，提前调节适宜室温与个性化灯光，进门即享最佳环境。家，在你到来之前就准备好了。</p>
             <div class="scene-meta">
               <span class="scene-meta-item product">空间智联Box · 习惯学习</span>
@@ -1266,10 +1275,8 @@
             <div class="scene-card-title">社区互动</div>
           </div>
           <div class="scene-card-body">
-            <div class="img-placeholder" style="height:180px;margin-bottom:20px;">
-              <div class="ph-icon">🤝</div>
-              <div class="ph-text">社区互动场景示意图</div>
-            </div>
+            <img src="./assets/images/content_img06.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:180px; margin-bottom:20px;" alt="" />
+            
             <p class="scene-desc">在线智能拼单，访客临时门禁码自动生成，打破钢筋水泥的隔阂，让邻里关系更有温度。</p>
             <div class="scene-meta">
               <span class="scene-meta-item product">社区智联Box + 区块链信任</span>
@@ -1284,10 +1291,8 @@
             <div class="scene-card-title">紧急服务</div>
           </div>
           <div class="scene-card-body">
-            <div class="img-placeholder" style="height:180px;margin-bottom:20px;">
-              <div class="ph-icon">🚨</div>
-              <div class="ph-text">紧急服务场景示意图</div>
-            </div>
+            <img src="./assets/images/content_img07.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:180px; margin-bottom:20px;" alt="" />
+            
             <p class="scene-desc">专为独居住户设计，语音一键求助直达云端，联动无人车极速配送应急物资。独居也安心，有我在。</p>
             <div class="scene-meta">
               <span class="scene-meta-item product">机器人交互Box + 社区智联Box</span>
@@ -1544,19 +1549,13 @@
         </div>
         <div>
           <div class="showroom-gallery">
-            <div class="img-placeholder main-img">
-              <div class="ph-icon">🏡</div>
-              <div class="ph-text">展厅主场景实景图</div>
-            </div>
+            <img src="./assets/images/content_img08.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:400px;" alt="" />
+              
             <div class="showroom-gallery-side">
-              <div class="img-placeholder side-img">
-                <div class="ph-icon">💡</div>
-                <div class="ph-text">智能灯光场景</div>
-              </div>
-              <div class="img-placeholder side-img">
-                <div class="ph-icon">🤖</div>
-                <div class="ph-text">机器人交互演示</div>
-              </div>
+              <img src="./assets/images/content_img09.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:192px;" alt="" />
+              
+              <img src="./assets/images/content_img10.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:192px;" alt="" />
+              
             </div>
           </div>
         </div>
@@ -1689,10 +1688,8 @@
             </div>
           </div>
         </div>
-        <div class="img-placeholder" style="height:400px;">
-          <div class="ph-icon">📖</div>
-          <div class="ph-text">品牌文化视觉图</div>
-        </div>
+        <img src="./assets/images/content_img11.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:400px;" alt="" />
+        
       </div>
     </div>
   </section>
@@ -1723,10 +1720,8 @@
   <section class="section section-alt" id="forward">
     <div class="container">
       <div class="robot-wrap">
-        <div class="img-placeholder" style="height:420px;">
-          <div class="ph-icon">🦾</div>
-          <div class="ph-text">人形机器人前瞻布局示意图</div>
-        </div>
+        <img src="./assets/images/content_img12.png" style="width:100%; object-fit:cover; border-radius:12px; display:block; height:420px;" alt="" />
+        
         <div>
           <span class="section-tag">前瞻布局</span>
           <h2 class="section-title">我们为人形机器人<br><span class="cyan">进入家庭积累数据</span></h2>
