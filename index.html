@@ -50,12 +50,6 @@
   .nav-logo {
     display: flex; align-items: center; gap: 10px;
   }
-  .nav-logo .logo-icon {
-    width: 40px; height: 40px; border-radius: 10px;
-    background: linear-gradient(135deg, var(--cyan-main), var(--cyan-dark));
-    display: flex; align-items: center; justify-content: center;
-    color: white; font-weight: 900; font-size: 18px;
-  }
   .nav-logo .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
   .nav-logo .logo-cn { font-size: 16px; font-weight: 700; color: var(--text-dark); }
   .nav-logo .logo-en { font-size: 10px; color: var(--cyan-main); letter-spacing: 0.5px; }
@@ -340,18 +334,26 @@
     transition: var(--transition); cursor: pointer;
   }
   .arch-box:hover {
-    background: rgba(0,180,216,0.1); border-color: var(--cyan-main);
-    transform: translateY(-4px);
+    background: rgba(0,180,216,0.3) !important;
+    border-color: var(--cyan-main) !important;
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 16px 40px rgba(0,180,216,0.5), 0 0 0 3px var(--cyan-main) !important;
   }
+  .arch-box:hover .arch-box-icon {
+    background: linear-gradient(135deg, var(--cyan-main), var(--cyan-dark)) !important;
+    transform: scale(1.15) !important;
+  }
+  .arch-box:hover .arch-box-name { color: white !important; }
+  .arch-box:hover .arch-box-desc { color: rgba(255,255,255,0.9) !important; }
   .arch-box-icon {
     width: 52px; height: 52px; border-radius: 12px; margin: 0 auto 14px;
     background: linear-gradient(135deg, rgba(0,180,216,0.3), rgba(0,119,182,0.3));
     border: 1px solid rgba(0,180,216,0.4);
     display: flex; align-items: center; justify-content: center;
-    font-size: 24px;
+    font-size: 24px; transition: var(--transition);
   }
-  .arch-box-name { color: var(--cyan-main); font-weight: 700; font-size: 15px; margin-bottom: 6px; }
-  .arch-box-desc { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; }
+  .arch-box-name { color: var(--cyan-main); font-weight: 700; font-size: 15px; margin-bottom: 6px; transition: var(--transition); }
+  .arch-box-desc { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; transition: var(--transition); }
 
   /* =========== HOME: Forward Looking =========== */
   .fwd-wrap {
@@ -441,12 +443,17 @@
   }
   .community-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: url("./assets/images/img05.png"), radial-gradient(circle at 20% 50%, rgba(244,162,97,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(0,180,216,0.15) 0%, transparent 50%);
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
+      url("./assets/images/community_banner.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
-  .community-hero .section-title { color: white; }
+  .community-hero .section-title { 
+    color: white; 
+    text-shadow: 2px 4px 12px rgba(0,0,0,0.6);
+  }
   .community-hero .section-desc { color: rgba(255,255,255,0.75); margin: 0 auto; }
 
   .scene-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
@@ -484,12 +491,17 @@
   }
   .ops-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: url("./assets/images/ops_banner.png"), radial-gradient(circle at 30% 50%, rgba(0,180,216,0.15) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(231,111,81,0.1) 0%, transparent 50%);
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
+      url("./assets/images/ops_banner.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
-  .ops-hero .section-title { color: white; }
+  .ops-hero .section-title { 
+    color: white; 
+    text-shadow: 2px 4px 12px rgba(0,0,0,0.6);
+  }
   .ops-hero .section-desc { color: rgba(255,255,255,0.75); margin: 0 auto; }
   .highlight-num { color: var(--orange-dark); font-weight: 900; }
 
@@ -557,14 +569,24 @@
   }
   .showroom-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: url("./assets/images/showroom_banner.png");
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
+      url("./assets/images/showroom_banner.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.4;
   }
-  .showroom-hero .section-title { color: white; position: relative; z-index: 1; }
-  .showroom-hero .section-desc { color: rgba(255,255,255,0.85); margin: 16px auto 0; position: relative; z-index: 1; }
+  .showroom-hero .section-title { 
+    color: white; 
+    position: relative; z-index: 1;
+    text-shadow: 2px 4px 12px rgba(0,0,0,0.6);
+  }
+  .showroom-hero .section-desc { 
+    color: rgba(255,255,255,0.85); 
+    margin: 16px auto 0; 
+    position: relative; z-index: 1; 
+    text-shadow: 1px 2px 8px rgba(0,0,0,0.5);
+  }
 
   .showroom-gallery {
     display: grid; grid-template-columns: 2fr 1fr;
@@ -610,10 +632,11 @@
   }
   .about-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: url("./assets/images/img06.png"), radial-gradient(circle at 20% 30%, rgba(0,180,216,0.12) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(244,162,97,0.08) 0%, transparent 40%);
+    background-image: url("./assets/images/about_banner.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: brightness(0.55) contrast(1.1);
   }
   .about-hero .section-title { color: white; font-size: clamp(26px, 4vw, 46px); margin-bottom: 20px; }
   .about-hero .slogan {
@@ -673,13 +696,22 @@
     margin-bottom: 28px;
   }
   .footer-brand .nav-logo { margin-bottom: 16px; }
-  .footer-brand .nav-logo img { background: transparent; mix-blend-mode: lighten; }
   .footer-brand .nav-logo .logo-cn { color: white; }
   .footer-brand-desc { font-size: 13px; line-height: 1.8; }
   .footer-col-title { color: white; font-size: 14px; font-weight: 700; margin-bottom: 14px; }
   .footer-col-link { font-size: 13px; display: block; padding: 5px 0; cursor: pointer; transition: var(--transition); }
   .footer-col-link:hover { color: var(--cyan-main); }
-  .footer-bottom { text-align: center; font-size: 13px; }
+  .footer-sub-item { font-size: 12px; display: block; padding: 3px 0 3px 12px; color: rgba(255,255,255,0.6); cursor: pointer; transition: var(--transition); }
+  .footer-sub-item:hover { color: var(--cyan-main); }
+  .footer-bottom-links { 
+    text-align: center; font-size: 12px; 
+    margin-bottom: 12px; 
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-bottom-links a { color: rgba(255,255,255,0.5); margin: 0 8px; cursor: pointer; }
+  .footer-bottom-links a:hover { color: var(--cyan-main); }
+  .footer-bottom { text-align: center; font-size: 12px; color: rgba(255,255,255,0.4); }
 
   /* =========== Divider =========== */
   .divider { height: 1px; background: rgba(0,0,0,0.06); margin: 0; }
@@ -710,6 +742,119 @@
   .stat-item .stat-num { font-size: 42px; font-weight: 900; color: white; line-height: 1; }
   .stat-item .stat-label { font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 6px; }
   .stat-item .stat-num .stat-unit { font-size: 22px; }
+
+  /* =========== JOIN US SECTION =========== */
+  /* 
+   * 如何替换内容：
+   * 1. 按钮链接：修改 <a> 标签的 href 属性
+   * 2. HR邮箱：修改 mailto: 后面的邮箱地址
+   * 3. 图片：替换 .join-us-image 的 background-image 为实际图片
+   */
+  .join-us-section {
+    padding: 80px 24px;
+    background: #F8F9FA;
+  }
+  .join-us-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+  .join-us-content {
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .join-us-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #00B4D8;
+    background: rgba(0,180,216,0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .join-us-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin: 0 0 8px 0;
+  }
+  .join-us-subtitle {
+    font-size: 14px;
+    color: #888;
+    margin: 0 0 24px 0;
+    letter-spacing: 1px;
+  }
+  .join-us-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin: 0 0 32px 0;
+  }
+  .join-us-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #F4A261;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: fit-content;
+    box-shadow: 0 4px 16px rgba(244,162,97,0.35);
+  }
+  .join-us-btn:hover {
+    background: #e8954d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244,162,97,0.45);
+  }
+  .join-us-email {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+  }
+  .join-us-email a {
+    color: #00B4D8;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .join-us-email a:hover {
+    text-decoration: underline;
+  }
+  .join-us-image {
+    overflow: hidden;
+    border-radius: 0 12px 12px 0;
+  }
+  .join-us-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* 响应式布局 */
+  @media (max-width: 900px) {
+    .join-us-card {
+      grid-template-columns: 1fr;
+    }
+    .join-us-image {
+      border-radius: 0 0 12px 12px;
+      min-height: 240px;
+    }
+    .join-us-content {
+      padding: 40px 32px;
+    }
+  }
 
   /* =========== Responsive =========== */
   @media (max-width: 1024px) {
@@ -756,7 +901,7 @@
 <nav id="navbar">
   <div class="nav-inner">
     <a class="nav-logo" href="http://127.0.0.1:8080/#" onclick="showPage(&#39;home&#39;)">
-      <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:36px;">
+      <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:48px;">
       <div class="logo-text">
         <span class="logo-cn">居易人工智能</span>
         <span class="logo-en">EaseLiving AI</span>
@@ -1059,7 +1204,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-logo" style="margin-bottom:16px;">
-            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:36px;">
+            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:56px;">
             <div class="logo-text">
               <span class="logo-cn">居易人工智能</span>
               <span class="logo-en">EaseLiving AI</span>
@@ -1069,23 +1214,27 @@
         </div>
         <div>
           <div class="footer-col-title">产品</div>
-          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">Space Cube 产品详情</a>
-          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">空间智联Box</a>
-          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">社区智联Box</a>
-          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">机器人交互Box</a>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">Space Cube</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">空间智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">社区智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">机器人交互 Box</span>
         </div>
         <div>
           <div class="footer-col-title">解决方案</div>
-          <a class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</a>
-          <a class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</a>
-          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">展厅体验</a>
+          <span class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</span>
+          <span class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">商务合作</span>
         </div>
         <div>
           <div class="footer-col-title">关于</div>
-          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">公司介绍</a>
-          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">品牌故事</a>
-          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">预约参观</a>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">公司介绍</span>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">品牌故事</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">媒体中心</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">加入我们</span>
         </div>
+      </div>
+      <div class="footer-bottom-links">
+        <a>隐私政策</a>|<a>使用条款</a>|<a>联系我们</a>
       </div>
       <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利 &nbsp;|&nbsp; EaseLiving AI Co., Ltd.</div>
     </div>
@@ -1129,17 +1278,17 @@
           </div>
         </div>
         <div class="arch-boxes">
-          <div class="arch-box" title="空间智联Box：家庭/室内空间智能化管家">
+          <div class="arch-box">
             <div class="arch-box-icon">🏠</div>
             <div class="arch-box-name">空间智联Box</div>
             <div class="arch-box-desc">懂你的生活管家<br>语音/触控 · 环境感知 · 习惯学习</div>
           </div>
-          <div class="arch-box" title="社区智联Box：社区/楼宇公共区域管理">
+          <div class="arch-box">
             <div class="arch-box-icon">🏢</div>
             <div class="arch-box-name">社区智联Box</div>
             <div class="arch-box-desc">守秩序的系统管家<br>监控门禁 · 规则联动 · 安全运维</div>
           </div>
-          <div class="arch-box" title="机器人交互Box：跨空间机器人集群调度">
+          <div class="arch-box">
             <div class="arch-box-icon">🤖</div>
             <div class="arch-box-name">机器人交互Box</div>
             <div class="arch-box-desc">会干活的调度总管<br>机器人调度 · 任务协同 · 服务集成</div>
@@ -1294,7 +1443,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-logo" style="margin-bottom:16px;">
-            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:36px;">
+            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:56px;">
             <div class="logo-text">
               <span class="logo-cn">居易人工智能</span>
               <span class="logo-en">EaseLiving AI</span>
@@ -1303,14 +1452,28 @@
           <p class="footer-brand-desc">智慧栖居，舒适生活</p>
         </div>
         <div>
-          <div class="footer-col-title">导航</div>
-          <a class="footer-col-link" onclick="showPage(&#39;home&#39;)">首页</a>
-          <a class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</a>
-          <a class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</a>
-          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">体验与合作</a>
-          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">关于我们</a>
+          <div class="footer-col-title">产品</div>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">Space Cube</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">空间智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">社区智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">机器人交互 Box</span>
         </div>
-        <div></div><div></div>
+        <div>
+          <div class="footer-col-title">解决方案</div>
+          <span class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</span>
+          <span class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">商务合作</span>
+        </div>
+        <div>
+          <div class="footer-col-title">关于</div>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">公司介绍</span>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">品牌故事</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">媒体中心</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">加入我们</span>
+        </div>
+      </div>
+      <div class="footer-bottom-links">
+        <a>隐私政策</a>|<a>使用条款</a>|<a>联系我们</a>
       </div>
       <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利</div>
     </div>
@@ -1333,7 +1496,7 @@
   <section class="section">
     <div class="container">
       <div class="text-center" style="margin-bottom:48px;">
-        <span class="section-tag">四大生活场景</span>
+        <span class="section-tag">智慧生活场景</span>
         <h2 class="section-title">一天的智慧生活，<span class="cyan">从早到晚都在掌控</span></h2>
       </div>
       <div class="scene-grid">
@@ -1417,7 +1580,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-logo" style="margin-bottom:16px;">
-            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:36px;">
+            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:56px;">
             <div class="logo-text">
               <span class="logo-cn">居易人工智能</span>
               <span class="logo-en">EaseLiving AI</span>
@@ -1426,14 +1589,28 @@
           <p class="footer-brand-desc">智慧栖居，舒适生活</p>
         </div>
         <div>
-          <div class="footer-col-title">导航</div>
-          <a class="footer-col-link" onclick="showPage(&#39;home&#39;)">首页</a>
-          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">产品与服务</a>
-          <a class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</a>
-          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">体验与合作</a>
-          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">关于我们</a>
+          <div class="footer-col-title">产品</div>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">Space Cube</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">空间智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">社区智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">机器人交互 Box</span>
         </div>
-        <div></div><div></div>
+        <div>
+          <div class="footer-col-title">解决方案</div>
+          <span class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</span>
+          <span class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">商务合作</span>
+        </div>
+        <div>
+          <div class="footer-col-title">关于</div>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">公司介绍</span>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">品牌故事</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">媒体中心</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">加入我们</span>
+        </div>
+      </div>
+      <div class="footer-bottom-links">
+        <a>隐私政策</a>|<a>使用条款</a>|<a>联系我们</a>
       </div>
       <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利</div>
     </div>
@@ -1568,7 +1745,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-logo" style="margin-bottom:16px;">
-            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:36px;">
+            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:56px;">
             <div class="logo-text">
               <span class="logo-cn">居易人工智能</span>
               <span class="logo-en">EaseLiving AI</span>
@@ -1577,14 +1754,28 @@
           <p class="footer-brand-desc">智慧栖居，舒适生活</p>
         </div>
         <div>
-          <div class="footer-col-title">导航</div>
-          <a class="footer-col-link" onclick="showPage(&#39;home&#39;)">首页</a>
-          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">产品与服务</a>
-          <a class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</a>
-          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">体验与合作</a>
-          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">关于我们</a>
+          <div class="footer-col-title">产品</div>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">Space Cube</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">空间智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">社区智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">机器人交互 Box</span>
         </div>
-        <div></div><div></div>
+        <div>
+          <div class="footer-col-title">解决方案</div>
+          <span class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</span>
+          <span class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">商务合作</span>
+        </div>
+        <div>
+          <div class="footer-col-title">关于</div>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">公司介绍</span>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">品牌故事</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">媒体中心</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">加入我们</span>
+        </div>
+      </div>
+      <div class="footer-bottom-links">
+        <a>隐私政策</a>|<a>使用条款</a>|<a>联系我们</a>
       </div>
       <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利</div>
     </div>
@@ -1623,11 +1814,11 @@
             </div>
             <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
               <span style="font-size:22px;">🕐</span>
-              <div><div style="font-size:13px;color:#888;">开放时间</div><div style="font-weight:600;color:var(--text-dark);">工作日 10:00–18:00（需预约）</div></div>
+              <div><div style="font-size:13px;color:#888;">开放时间</div><div style="font-weight:600;color:var(--text-dark);">每日 10:00–18:00</div></div>
             </div>
             <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
               <span style="font-size:22px;">✨</span>
-              <div><div style="font-size:13px;color:#888;">展示内容</div><div style="font-weight:600;color:var(--text-dark);">三大盒子实景联动 + 四大生活场景沉浸体验</div></div>
+              <div><div style="font-size:13px;color:#888;">展示内容</div><div style="font-weight:600;color:var(--text-dark);">三大盒子实景联动 + 智慧生活场景沉浸体验</div></div>
             </div>
           </div>
         </div>
@@ -1650,8 +1841,11 @@
   <!-- Booking Form -->
   <section class="section">
     <div class="container" style="max-width:800px;">
+      <div style="text-align:center;">
+        <span class="section-tag">商务合作</span>
+        <h2 class="section-title" style="margin-bottom:32px;">让您的楼宇成为智慧社区</h2>
+      </div>
       <div class="form-wrap">
-        <div class="form-title">让您的楼宇成为智慧社区</div>
         <div class="form-subtitle">填写以下信息，开启我们的相遇</div>
         <form id="bookingForm" onsubmit="submitForm(event)">
           <div class="form-grid">
@@ -1708,7 +1902,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-logo" style="margin-bottom:16px;">
-            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:36px;">
+            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:56px;">
             <div class="logo-text">
               <span class="logo-cn">居易人工智能</span>
               <span class="logo-en">EaseLiving AI</span>
@@ -1717,14 +1911,28 @@
           <p class="footer-brand-desc">智慧栖居，舒适生活</p>
         </div>
         <div>
-          <div class="footer-col-title">导航</div>
-          <a class="footer-col-link" onclick="showPage(&#39;home&#39;)">首页</a>
-          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">产品与服务</a>
-          <a class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</a>
-          <a class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</a>
-          <a class="footer-col-link" onclick="showPage(&#39;about&#39;)">关于我们</a>
+          <div class="footer-col-title">产品</div>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">Space Cube</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">空间智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">社区智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">机器人交互 Box</span>
         </div>
-        <div></div><div></div>
+        <div>
+          <div class="footer-col-title">解决方案</div>
+          <span class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</span>
+          <span class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">商务合作</span>
+        </div>
+        <div>
+          <div class="footer-col-title">关于</div>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">公司介绍</span>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">品牌故事</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">媒体中心</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">加入我们</span>
+        </div>
+      </div>
+      <div class="footer-bottom-links">
+        <a>隐私政策</a>|<a>使用条款</a>|<a>联系我们</a>
       </div>
       <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利</div>
     </div>
@@ -1842,6 +2050,32 @@
     </div>
   </section>
 
+  <!-- =========== JOIN US =========== -->
+  <!-- 
+   * 如何替换内容：
+   * 1. 按钮链接：修改 href="#"
+   * 2. HR邮箱：修改 mailto:hr@easeliving-ai.com
+   * 3. 右侧图片：将 .join-us-image 改为实际图片背景
+  -->
+  <section class="join-us-section">
+    <div class="join-us-card">
+      <div class="join-us-content">
+        <span class="join-us-tag">智同道合</span>
+        <h2 class="join-us-title">加入我们</h2>
+        <p class="join-us-desc">
+          我们在寻找热爱科技、相信"科技服务于人"的伙伴。在这里，你将获得前沿技术的实践机会，享受扁平高效的团队文化，与行业精英共同成长。加入我们，一起用AI重新定义居住体验。
+        </p>
+        <!-- 修改href为实际招聘链接，如 https://www.zhaopin.com/company/xxx -->
+        <a href="#" class="join-us-btn">查看开放职位</a>
+        <!-- 修改邮箱为实际HR邮箱 -->
+        <p class="join-us-email">简历投递：<a href="mailto:hr@easeliving-ai.com">hr@easeliving-ai.com</a></p>
+      </div>
+      <div class="join-us-image">
+        <img src="./assets/images/join_us_banner.png" alt="加入我们" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="section" style="background:linear-gradient(135deg,#0a2942,#0a3d5e);">
     <div class="container text-center">
@@ -1850,7 +2084,7 @@
       <div class="about-cta-buttons">
         <a class="btn btn-orange" onclick="showPage(&#39;products&#39;)">了解 Space Cube →</a>
         <a class="btn btn-orange" onclick="showPage(&#39;community&#39;)">体验智慧场景 →</a>
-        <a class="btn btn-orange" onclick="showPage(&#39;showroom&#39;)">预约展厅体验 →</a>
+        <a class="btn btn-orange" onclick="showPage(&#39;showroom&#39;)">共启合作远景 →</a>
       </div>
     </div>
   </section>
@@ -1863,7 +2097,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-logo" style="margin-bottom:16px;">
-            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:36px;">
+            <img src="./assets/images/logo_transparent.png" alt="EaseLiving AI" class="logo-img" style="height:56px;">
             <div class="logo-text">
               <span class="logo-cn">居易人工智能</span>
               <span class="logo-en">EaseLiving AI</span>
@@ -1872,20 +2106,28 @@
           <p class="footer-brand-desc">智慧栖居，舒适生活</p>
         </div>
         <div>
-          <div class="footer-col-title">导航</div>
-          <a class="footer-col-link" onclick="showPage(&#39;home&#39;)">首页</a>
-          <a class="footer-col-link" onclick="showPage(&#39;products&#39;)">产品与服务</a>
-          <a class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</a>
-          <a class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</a>
-          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">体验与合作</a>
+          <div class="footer-col-title">产品</div>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">Space Cube</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">空间智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">社区智联 Box</span>
+          <span class="footer-col-link" onclick="showPage(&#39;products&#39;)">机器人交互 Box</span>
         </div>
         <div>
-          <div class="footer-col-title">联系我们</div>
-          <a class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">预约参观</a>
-          <a class="footer-col-link">商务合作</a>
-          <a class="footer-col-link">媒体联络</a>
+          <div class="footer-col-title">解决方案</div>
+          <span class="footer-col-link" onclick="showPage(&#39;community&#39;)">智慧社区</span>
+          <span class="footer-col-link" onclick="showPage(&#39;operations&#39;)">智慧运营</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">商务合作</span>
         </div>
-        <div></div>
+        <div>
+          <div class="footer-col-title">关于</div>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">公司介绍</span>
+          <span class="footer-col-link" onclick="showPage(&#39;about&#39;)">品牌故事</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">媒体中心</span>
+          <span class="footer-col-link" onclick="showPage(&#39;showroom&#39;)">加入我们</span>
+        </div>
+      </div>
+      <div class="footer-bottom-links">
+        <a>隐私政策</a>|<a>使用条款</a>|<a>联系我们</a>
       </div>
       <div class="footer-bottom">© 2026 居易人工智能有限公司 保留所有权利 &nbsp;|&nbsp; EaseLiving AI Co., Ltd.</div>
     </div>
